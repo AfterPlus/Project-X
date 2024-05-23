@@ -105,6 +105,18 @@ protected:
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Variables")
 	FWeapon WeaponDetails;
 
+	/** The current number of bullets in the gun */
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Variables")
+	float CurrentAmmo;
+
+	/**  The number of bullets currently loaded in the weapon's clip */
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Variables")
+	float AmmoInClip;
+
+	/** The maximum number of bullets that the weapon's clip can hold */
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Variables")
+	float MaxAmmoInClip;
+
 	/** The name of the weapon */
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Variables")
 	FText WeaponName;

@@ -7,6 +7,7 @@
 #include "GameFramework/Character.h"
 #include "MyCharacter.generated.h"
 
+class UGrenadeSystemComponent;
 class UWeaponSystemComponent;
 class AMasterWeapon;
 class UWidgetComponent;
@@ -161,6 +162,9 @@ protected:
 
 	UPROPERTY(BlueprintReadWrite, Category="Components")
 	UWeaponSystemComponent* WeaponSystemComponent;
+
+	UPROPERTY(BlueprintReadWrite, Category="Components")
+	UGrenadeSystemComponent* GrenadeSystemComponent;
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
