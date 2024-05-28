@@ -7,6 +7,8 @@
 #include "GrenadeSystemComponent.generated.h"
 
 
+class AMyCharacter;
+
 UCLASS(Blueprintable, meta=(BlueprintSpawnableComponent))
 class TEMPORAL_INVASION_API UGrenadeSystemComponent : public UActorComponent
 {
@@ -16,6 +18,8 @@ public:
 	// Sets default values for this component's properties
 	UGrenadeSystemComponent();
 
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Variables" )
+	AMyCharacter* AsMyCharacter;
 protected:
 	// Called when the game starts
 	virtual void BeginPlay() override;
