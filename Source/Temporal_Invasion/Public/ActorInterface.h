@@ -42,6 +42,9 @@ public:
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
 	void StartWeaponFire();
 
+	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
+	void Grenade();
+
 	/** Fire the in hand weapon */
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
 	void StopWeaponFire();

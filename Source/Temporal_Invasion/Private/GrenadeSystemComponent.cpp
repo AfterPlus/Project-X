@@ -25,6 +25,26 @@ void UGrenadeSystemComponent::BeginPlay()
 	
 }
 
+void UGrenadeSystemComponent::StartWeaponFire_Implementation()
+{
+	IActorInterface::StartWeaponFire_Implementation();
+}
+
+void UGrenadeSystemComponent::StopWeaponFire_Implementation()
+{
+	IActorInterface::StopWeaponFire_Implementation();
+}
+
+void UGrenadeSystemComponent::WeaponReload_Implementation()
+{
+	IActorInterface::WeaponReload_Implementation();
+}
+
+void UGrenadeSystemComponent::Grenade_Implementation()
+{
+	
+}
+
 
 // Called every frame
 void UGrenadeSystemComponent::TickComponent(float DeltaTime, ELevelTick TickType,
