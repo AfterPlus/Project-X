@@ -3,11 +3,13 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "ActorInterface.h"
 #include "GameFramework/Actor.h"
 #include "Resources.generated.h"
 
 UCLASS()
-class TEMPORAL_INVASION_API AResources : public AActor
+class TEMPORAL_INVASION_API AResources : public AActor,
+	public IActorInterface
 {
 	GENERATED_BODY()
 
