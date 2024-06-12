@@ -1,7 +1,8 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 
-#include "MyCharacter.h"
+#include "Core/MyCharacter.h"
+#include "Utilities/BPFunctionLibrary.h"
 #include "MasterWeapon.h"
 #include "Components/WidgetComponent.h"
 
@@ -28,7 +29,7 @@ void AMyCharacter::BeginPlay()
 {
 	Super::BeginPlay();
 	
-	
+	CastToCoreMain();
 }
 
 // Called every frame
@@ -43,6 +44,14 @@ void AMyCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCompone
 {
 	Super::SetupPlayerInputComponent(PlayerInputComponent);
 
+}
+
+void AMyCharacter::CastToCoreMain_Implementation()
+{
+	//AMyCharacter* AsMyCharacter;
+	//UBPFunctionLibrary::CastToCore_Main(GetWorld(),AsMainGameMode,AsMainPlayerController,AsMyCharacter,AsMainHUD);
+	//check(AsMainPlayerController);
+	//check(AsMainGameMode);
 }
 
 bool AMyCharacter::GetLookInputVars_Implementation(FRotator CamRotPrev)

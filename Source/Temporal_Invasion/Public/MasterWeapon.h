@@ -6,7 +6,7 @@
 #include "Engine/DataTable.h"
 #include "GameFramework/Actor.h"
 #include "Engine/DataTable.h"
-#include "ActorInterface.h"
+#include "Utilities/ActorInterface.h"
 #include "MasterWeapon.generated.h"
 
 USTRUCT(BlueprintType)

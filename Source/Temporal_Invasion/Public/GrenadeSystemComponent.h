@@ -1,6 +1,6 @@
 ﻿#include "CoreMinimal.h"
 #include "Components/ActorComponent.h"
-#include "ActorInterface.h"
+#include "Utilities/ActorInterface.h"
 #include "GrenadeSystemComponent.generated.h"
 
 class AMyCharacter;

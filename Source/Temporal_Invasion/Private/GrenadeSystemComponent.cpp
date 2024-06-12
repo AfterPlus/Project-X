@@ -2,7 +2,7 @@
 
 
 #include "GrenadeSystemComponent.h"
-#include "MyCharacter.h"
+#include "Core/MyCharacter.h"
 
 
 // Sets default values for this component's properties

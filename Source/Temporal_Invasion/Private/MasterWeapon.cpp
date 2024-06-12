@@ -5,7 +5,7 @@
 #include "Components/SkeletalMeshComponent.h"
 #include "Components/SphereComponent.h"
 #include "Components/StaticMeshComponent.h"
-#include "MyCharacter.h"
+#include "Core/MyCharacter.h"
 
 // Sets default values
 AMasterWeapon::AMasterWeapon()

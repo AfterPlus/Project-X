@@ -3,7 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "ActorInterface.h"
+#include "Utilities/ActorInterface.h"
 #include "GameFramework/HUD.h"
 #include "MainHUD.generated.h"
 
@@ -15,6 +15,10 @@ class TEMPORAL_INVASION_API AMainHUD : public AHUD,
 	public IActorInterface
 {
 	GENERATED_BODY()
+
+public:
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category= "Widget")
+	UUserWidget* Wbp_WeaponWheel;
 
 	virtual void ActorOnInitialize_Implementation(AActor* Interact_Actor) override;
 };

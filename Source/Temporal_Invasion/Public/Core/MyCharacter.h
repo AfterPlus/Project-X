@@ -3,10 +3,13 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "ActorInterface.h"
+#include "Utilities/ActorInterface.h"
 #include "GameFramework/Character.h"
 #include "MyCharacter.generated.h"
 
+class AMainHUD;
+class AMainGameModeBase;
+class AMainPlayerController;
 class UGrenadeSystemComponent;
 class UWeaponSystemComponent;
 class AMasterWeapon;
@@ -21,6 +24,16 @@ public:
 	// Sets default values for this character's properties
 	AMyCharacter();
 
+	// cast to core main
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category ="Components")
+	AMainPlayerController* AsMainPlayerController ;
+	
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category ="Components")
+	AMainGameModeBase* AsMainGameMode ;
+	
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category ="Components")
+	AMainHUD* AsMainHUD ;
+	
 	/** Component for the guns to be placed */
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category ="Components")
 	USkeletalMeshComponent* GunMesh ;
@@ -172,6 +185,10 @@ public:
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
+
+	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "Functions")
+	void CastToCoreMain();
+	
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "Functions")
 	void EquipWeapon(int Index);
 
