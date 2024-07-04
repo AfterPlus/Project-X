@@ -50,8 +50,6 @@ void AMyCharacter::CastToCoreMain_Implementation()
 {
 	//AMyCharacter* AsMyCharacter;
 	//UBPFunctionLibrary::CastToCore_Main(GetWorld(),AsMainGameMode,AsMainPlayerController,AsMyCharacter,AsMainHUD);
-	//check(AsMainPlayerController);
-	//check(AsMainGameMode);
 }
 
 bool AMyCharacter::GetLookInputVars_Implementation(FRotator CamRotPrev)

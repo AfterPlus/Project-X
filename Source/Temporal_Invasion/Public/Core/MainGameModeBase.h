@@ -8,7 +8,7 @@
 #include "MainGameModeBase.generated.h"
 
 
-
+class UUserWidget;
 /**
  * 
  */
@@ -17,5 +17,6 @@ class TEMPORAL_INVASION_API AMainGameModeBase : public AGameModeBase
 {
 	GENERATED_BODY()
 public:
+	
 	
 };

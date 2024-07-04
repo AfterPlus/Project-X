@@ -2,4 +2,5 @@
 
 
 #include "Core/MainGameModeBase.h"
+#include "UserWidgetBase.h"
 

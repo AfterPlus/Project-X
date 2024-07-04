@@ -23,7 +23,6 @@ class TEMPORAL_INVASION_API AMyCharacter : public ACharacter,
 public:
 	// Sets default values for this character's properties
 	AMyCharacter();
-
 	// cast to core main
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category ="Components")
 	AMainPlayerController* AsMainPlayerController ;
