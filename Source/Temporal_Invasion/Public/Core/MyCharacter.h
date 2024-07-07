@@ -45,9 +45,8 @@ public:
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category ="Variables")
 	UWidgetComponent* InteractWidget ;
 
-	/** Interact widget display when overlap weapon class */
-	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category ="Variables")
-	UWidgetComponent* WBP_RadialMenu ;
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category ="Components")
+	bool isWeaponWidgetActive ;
 
 	/** Time handler  */
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category ="Procedural Animation")

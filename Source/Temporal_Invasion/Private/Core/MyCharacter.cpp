@@ -21,6 +21,7 @@ AMyCharacter::AMyCharacter()
 	//GunHolder->SetupAttachment(GetMesh(),TEXT("GunSocket"));
 
 	InteractWidget = CreateDefaultSubobject<UWidgetComponent>(TEXT("InteractWidget"));
+	isWeaponWidgetActive = true ;
 	
 }
 
