@@ -23,7 +23,6 @@ protected:
 	virtual void StartWeaponFire_Implementation() override ;
 	virtual void StopWeaponFire_Implementation() override;
 	virtual  void WeaponReload_Implementation() override;
-	virtual void Grenade_Implementation() override;
 
 public:
 	// Called every frame

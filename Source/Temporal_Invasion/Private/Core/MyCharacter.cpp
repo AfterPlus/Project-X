@@ -4,6 +4,7 @@
 #include "Core/MyCharacter.h"
 #include "Utilities/BPFunctionLibrary.h"
 #include "MasterWeapon.h"
+#include "MasterGrenade.h"
 #include "Components/WidgetComponent.h"
 
 
@@ -45,6 +46,12 @@ void AMyCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCompone
 {
 	Super::SetupPlayerInputComponent(PlayerInputComponent);
 
+}
+
+void AMyCharacter::AddGrenadeClass_Implementation(TSubclassOf<AMasterGrenade> GrenadeClass)
+{
+	IActorInterface::AddGrenadeClass_Implementation(GrenadeClass);
+	AllGrenades.Add(GrenadeClass);
 }
 
 void AMyCharacter::CastToCoreMain_Implementation()

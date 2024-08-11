@@ -7,6 +7,7 @@
 #include "GameFramework/Character.h"
 #include "MyCharacter.generated.h"
 
+class AMasterGrenade;
 class AMainHUD;
 class AMainGameModeBase;
 class AMainPlayerController;
@@ -147,6 +148,10 @@ public:
 	UPROPERTY(BlueprintReadWrite, Category="Weapon")
 	TArray<AMasterWeapon*> AllWeapons ;
 
+	/** List of greandes the player is carrying  */
+	UPROPERTY(BlueprintReadWrite, Category="Weapon")
+	 TArray<TSubclassOf<AMasterGrenade>> AllGrenades;
+
 	UPROPERTY(BlueprintReadWrite, Category="Weapon")
 	TArray<USceneComponent*> WeaponSlots ;
 	
@@ -183,6 +188,7 @@ public:
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
+	virtual void AddGrenadeClass_Implementation(TSubclassOf<AMasterGrenade> GrenadeClass) override;
 
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "Functions")
 	void CastToCoreMain();

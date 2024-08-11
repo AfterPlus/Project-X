@@ -43,7 +43,7 @@ public:
 	void StartWeaponFire();
 
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
-	void Grenade();
+	void AddGrenadeClass(TSubclassOf<AMasterGrenade> GrenadeClass) ;
 
 	/** Fire the in hand weapon */
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)

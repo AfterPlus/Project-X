@@ -40,10 +40,6 @@ void UGrenadeSystemComponent::WeaponReload_Implementation()
 	IActorInterface::WeaponReload_Implementation();
 }
 
-void UGrenadeSystemComponent::Grenade_Implementation()
-{
-	
-}
 
 
 // Called every frame
