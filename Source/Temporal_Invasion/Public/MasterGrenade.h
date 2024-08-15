@@ -7,6 +7,18 @@
 #include "Utilities/ActorInterface.h"
 #include "MasterGrenade.generated.h"
 
+UENUM(BlueprintType)
+enum class EGrenadeState : uint8
+{
+	EIR_OnGround UMETA(DisplayName = "OnGround"),
+	EIR_InHand UMETA(DisplayName = "InHand"),
+	EIR_Switch UMETA(DisplayName = "Switch"),
+	EIR_InInventory UMETA(DisplayName = "In Inventory"),
+	EIR_MAX UMETA(DisplayName = "DafaultMAX")
+};
+
+class UBoxComponent;
+class UProjectileMovementComponent;
 class USphereComponent;
 
 UCLASS(BlueprintType)
@@ -22,8 +34,15 @@ public:
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Component")
 	UStaticMeshComponent* Mesh;
 
-	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Component")
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Component")
 	USphereComponent* CollisionBox;
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Component")
+	UProjectileMovementComponent* ProjectileMovement;
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Variable")
+	EGrenadeState GrenadeState;
+	
 
 protected:
 	// Called when the game starts or when spawned
@@ -35,5 +54,7 @@ public:
 
 	UFUNCTION()
 	void OnOverlapBegin(UPrimitiveComponent* OverlappedComp, AActor* OtherActor,UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult &SweepResult);
-	
+
+	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "Functions")
+	void UpdateGrenadeState(EGrenadeState WeaponState);
 };
