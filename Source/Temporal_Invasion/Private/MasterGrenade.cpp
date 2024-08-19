@@ -19,7 +19,7 @@ AMasterGrenade::AMasterGrenade()
 	CollisionBox = CreateDefaultSubobject<USphereComponent>(TEXT("CollisionBox"));
 	CollisionBox->SetupAttachment(Mesh);  // Set the CollisionBox as the mesh
 
-	ProjectileMovement = CreateDefaultSubobject<UProjectileMovementComponent>(TEXT("ProjectileMovementComponent"));
+	//ProjectileMovement = CreateDefaultSubobject<UProjectileMovementComponent>(TEXT("ProjectileMovementComponent"));
 	
 	// Set up the overlap event
 	CollisionBox->OnComponentBeginOverlap.AddDynamic(this, &AMasterGrenade::OnOverlapBegin);

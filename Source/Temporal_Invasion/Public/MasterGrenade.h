@@ -37,8 +37,8 @@ public:
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Component")
 	USphereComponent* CollisionBox;
 
-	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Component")
-	UProjectileMovementComponent* ProjectileMovement;
+	//UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Component")
+	//UProjectileMovementComponent* ProjectileMovement;
 
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Variable")
 	EGrenadeState GrenadeState;
