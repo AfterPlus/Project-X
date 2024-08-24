@@ -37,11 +37,17 @@ public:
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Component")
 	USphereComponent* CollisionBox;
 
-	//UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Component")
-	//UProjectileMovementComponent* ProjectileMovement;
-
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Component")
+	USphereComponent* MeshCollision;
+	
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Variable")
 	EGrenadeState GrenadeState;
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Variable")
+	USoundBase* BounceSound;
+
+	UPROPERTY(VisibleAnywhere)
+	UAudioComponent* AudioComponent;
 	
 
 protected:
@@ -54,6 +60,9 @@ public:
 
 	UFUNCTION()
 	void OnOverlapBegin(UPrimitiveComponent* OverlappedComp, AActor* OtherActor,UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult &SweepResult);
+
+	UFUNCTION()
+	void OnOverlapBegin_MeshCollision(UPrimitiveComponent* OverlappedComp, AActor* OtherActor,UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult &SweepResult);
 
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "Functions")
 	void UpdateGrenadeState(EGrenadeState WeaponState);
