@@ -11,6 +11,10 @@ class AMainPlayerController;
 class AMainHUD;
 class AMyCharacter;
 class AMainGameModeBase;
+class AGameStartMapModeBase;
+class AGameStartHUD;
+class AGameStartCharacter;
+class AGameStartPlayerController;
 /**
  * 
  */
@@ -23,4 +27,9 @@ class TEMPORAL_INVASION_API UBPFunctionLibrary : public UBlueprintFunctionLibrar
 	static void CastToCore_Main(UObject* WorldContext, AMainGameModeBase*& AsMainGameMode,
 		AMainPlayerController*& AsMainPlayerController, AMyCharacter*& AsMainPlayerCharacter,
 		AMainHUD*& AsMainHUD);
+
+	UFUNCTION(BlueprintCallable, Category="CPP | Utilities")
+	static void CastToGameStartMap(UObject* WorldContext, AGameStartMapModeBase*& AsGameStartMapModeBase,
+		AGameStartPlayerController*& AsGameStartPlayerController, AGameStartCharacter*& AsGameStartCharacter,
+		AGameStartHUD*& AsGameStartHUD);
 };
