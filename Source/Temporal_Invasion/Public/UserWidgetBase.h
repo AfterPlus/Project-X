@@ -4,13 +4,14 @@
 
 #include "CoreMinimal.h"
 #include "Blueprint/UserWidget.h"
+#include "CommonActivatableWidget.h"
 #include "UserWidgetBase.generated.h"
 
 /**
  * 
  */
 UCLASS()
-class TEMPORAL_INVASION_API UUserWidgetBase : public UUserWidget
+class TEMPORAL_INVASION_API UUserWidgetBase : public UCommonActivatableWidget
 {
 	GENERATED_BODY()
 	

@@ -31,6 +31,10 @@
 		{
 			"Name": "DatasmithGLTFImporter",
 			"Enabled": true
+		},
+		{
+			"Name": "EnhancedInput",
+			"Enabled": true
 		}
 	]
 }
