@@ -1,11 +1,10 @@
-﻿// Fill out your copyright notice in the Description page of Project Settings.
-
-
-#include "Core/MiniMap.h"
-
+﻿
+#include "Core/3dMiniMap/MiniMap.h"
 #include "Components/SceneCaptureComponent2D.h"
+#include "Core/MainGameModeBase.h"
 #include "GameFramework/SpringArmComponent.h"
 
+AMiniMap* AMiniMap::Instance = nullptr ; 
 
 // Sets default values
 AMiniMap::AMiniMap()
@@ -22,12 +21,14 @@ AMiniMap::AMiniMap()
 	SceneCaptureComponent = CreateDefaultSubobject<USceneCaptureComponent2D>(TEXT("SceneComponent"));
 	SceneCaptureComponent->SetupAttachment(SpringArmComponent);
 	
+	AsMainGameModeBase = AMainGameModeBase::GetInstance();
 }
 
 // Called when the game starts or when spawned
 void AMiniMap::BeginPlay()
 {
 	Super::BeginPlay();
+	Instance = this;
 	
 }
 
@@ -37,6 +38,10 @@ void AMiniMap::Tick(float DeltaTime)
 	Super::Tick(DeltaTime);
 }
 
+AMiniMap* AMiniMap::GetInstance()
+{
+	return Instance;
+}
 
 
 

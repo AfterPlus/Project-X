@@ -6,6 +6,7 @@
 #include "GameFramework/Actor.h"
 #include "MiniMap.generated.h"
 
+class AMainGameModeBase;
 class USpringArmComponent;
 
 UCLASS()
@@ -25,6 +26,8 @@ public:
 	UPROPERTY(BlueprintReadWrite,EditAnywhere,Category="MiniMap")
 	USpringArmComponent* SpringArmComponent;
 
+	UPROPERTY(BlueprintReadWrite,EditAnywhere,Category="MiniMap")
+	AMainGameModeBase* AsMainGameModeBase;
 
 	
 protected:
@@ -35,4 +38,9 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
+	UFUNCTION(BlueprintCallable)
+	static AMiniMap* GetInstance();
+	
+private:
+	static AMiniMap* Instance;
 };
