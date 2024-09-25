@@ -2,20 +2,29 @@
 
 
 #include "Core/3dMiniMap/MiniMapPawn.h"
+#include "Components/SceneCaptureComponent2D.h"
+#include "GameFramework/SpringArmComponent.h"
 
+AMiniMapPawn* AMiniMapPawn::Instance = nullptr ;
 
 // Sets default values
 AMiniMapPawn::AMiniMapPawn()
 {
 	// Set this pawn to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
+
+	SpringArmComponent = CreateDefaultSubobject<USpringArmComponent>(TEXT("SpringArmComponent"));
+	SpringArmComponent->SetupAttachment(RootComponent);
+
+	CaptureComponent2D = CreateDefaultSubobject<USceneCaptureComponent2D>(TEXT("CaptureComponent2D"));
+	CaptureComponent2D->SetupAttachment(SpringArmComponent);
 }
 
 // Called when the game starts or when spawned
 void AMiniMapPawn::BeginPlay()
 {
 	Super::BeginPlay();
-	
+	Instance = this ;
 }
 // Called every frame
 void AMiniMapPawn::Tick(float DeltaTime)
@@ -27,5 +36,10 @@ void AMiniMapPawn::Tick(float DeltaTime)
 void AMiniMapPawn::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 {
 	Super::SetupPlayerInputComponent(PlayerInputComponent);
+}
+
+AMiniMapPawn* AMiniMapPawn::GetInstance()
+{
+	return Instance ;
 }
 

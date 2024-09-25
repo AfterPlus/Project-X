@@ -6,6 +6,8 @@
 #include "GameFramework/Pawn.h"
 #include "MiniMapPawn.generated.h"
 
+class USpringArmComponent;
+
 UCLASS()
 class TEMPORAL_INVASION_API AMiniMapPawn : public APawn
 {
@@ -14,6 +16,21 @@ class TEMPORAL_INVASION_API AMiniMapPawn : public APawn
 public:
 	// Sets default values for this pawn's properties
 	AMiniMapPawn();
+
+	UPROPERTY(BlueprintReadWrite,VisibleAnywhere,Category=Component)
+	USpringArmComponent* SpringArmComponent;
+
+	UPROPERTY(BlueprintReadWrite,VisibleAnywhere,Category=Component)
+	USceneCaptureComponent2D* CaptureComponent2D;
+
+	UPROPERTY(BlueprintReadWrite,VisibleAnywhere,Category=Camera)
+	float ZoomSpeed;
+
+	UPROPERTY(BlueprintReadWrite,VisibleAnywhere,Category=Camera)
+	float MaxZoom = 2500.0f;
+	
+	UPROPERTY(BlueprintReadWrite,VisibleAnywhere,Category=Camera)
+	float MinZoom = 1000.0f;
 
 protected:
 	// Called when the game starts or when spawned
@@ -25,4 +42,10 @@ public:
 
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
+
+	UFUNCTION(BlueprintCallable)
+	static AMiniMapPawn* GetInstance();
+
+private:
+	static AMiniMapPawn* Instance;
 };
