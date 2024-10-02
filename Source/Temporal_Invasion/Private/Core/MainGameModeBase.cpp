@@ -2,5 +2,18 @@
 
 
 #include "Core/MainGameModeBase.h"
-#include "UserWidgetBase.h"
+
+AMainGameModeBase* AMainGameModeBase::Instance = nullptr ;
+
+void AMainGameModeBase::BeginPlay()
+{
+	Super::BeginPlay();
+	Instance = this ; 
+}
+
+AMainGameModeBase* AMainGameModeBase::GetInstance()
+{
+	return Instance ; 
+}
+
 
