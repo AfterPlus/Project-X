@@ -21,16 +21,25 @@ public:
 	USpringArmComponent* SpringArmComponent;
 
 	UPROPERTY(BlueprintReadWrite,VisibleAnywhere,Category=Component)
+	USceneComponent* SceneComponent;
+
+	UPROPERTY(BlueprintReadWrite,VisibleAnywhere,Category=Component)
 	USceneCaptureComponent2D* CaptureComponent2D;
 
-	UPROPERTY(BlueprintReadWrite,VisibleAnywhere,Category=Camera)
+	UPROPERTY(BlueprintReadWrite,EditAnywhere,Category=Camera)
 	float ZoomSpeed;
 
-	UPROPERTY(BlueprintReadWrite,VisibleAnywhere,Category=Camera)
+	UPROPERTY(BlueprintReadWrite,EditAnywhere,Category=Camera)
 	float MaxZoom = 2500.0f;
 	
-	UPROPERTY(BlueprintReadWrite,VisibleAnywhere,Category=Camera)
+	UPROPERTY(BlueprintReadWrite,EditAnywhere,Category=Camera)
 	float MinZoom = 1000.0f;
+
+	UPROPERTY(BlueprintReadWrite,EditAnywhere,Category=Camera)
+	float MoveSpeed = 15.0f;
+
+	UPROPERTY(BlueprintReadWrite,EditAnywhere,Category=Camera)
+	float CameraRotationSpeed ;
 
 protected:
 	// Called when the game starts or when spawned
