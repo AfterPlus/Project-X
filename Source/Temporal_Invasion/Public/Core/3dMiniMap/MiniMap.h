@@ -6,6 +6,8 @@
 #include "GameFramework/Actor.h"
 #include "MiniMap.generated.h"
 
+class AMainGameModeBase;
+
 UCLASS()
 class TEMPORAL_INVASION_API AMiniMap : public AActor
 {
@@ -18,6 +20,9 @@ public:
 	UPROPERTY(BlueprintReadWrite,VisibleAnywhere,Category=Component)
 	UStaticMeshComponent* MiniMapMesh;
 
+	UPROPERTY(BlueprintReadWrite,VisibleAnywhere,Category=Component)
+	AMainGameModeBase* MainGameModeBase;
+
 	UPROPERTY(BlueprintReadWrite,VisibleAnywhere,Category=Variable)
 	float ScaleFactor;
 
@@ -27,6 +32,8 @@ public:
 	UPROPERTY(BlueprintReadWrite,VisibleAnywhere,Category=Variable)
 	FVector SmallerScale;
 
+	UFUNCTION(BlueprintCallable)
+	void Init();
 
 public:
 	UFUNCTION(BlueprintCallable)

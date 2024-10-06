@@ -3,6 +3,8 @@
 
 #include "Core/3dMiniMap/MiniMap.h"
 
+#include "Core/MainGameModeBase.h"
+
 AMiniMap* AMiniMap::Instance = nullptr;
 
 // Sets default values
@@ -21,6 +23,11 @@ void AMiniMap::BeginPlay()
 {
 	Super::BeginPlay();
 	Instance = this;
+}
+
+void AMiniMap::Init()
+{
+	MainGameModeBase = AMainGameModeBase::GetInstance();
 }
 
 AMiniMap* AMiniMap::GetInstance()

@@ -3,6 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "3dMiniMap/MiniMap.h"
 #include "Utilities/BPFunctionLibrary.h"
 #include "GameFramework/GameModeBase.h"
 
@@ -18,11 +19,16 @@ class TEMPORAL_INVASION_API AMainGameModeBase : public AGameModeBase
 public:
 	UFUNCTION(BlueprintCallable)
 	static AMainGameModeBase* GetInstance();
+		
+	UPROPERTY(BlueprintReadWrite,VisibleAnywhere)
+	AMiniMap* MiniMap;
 
+	UFUNCTION(BlueprintCallable)
+	void Init();
+	
 protected:
 	virtual void BeginPlay() override;
-
-private:
+	
 	static AMainGameModeBase* Instance;
 	
 };
