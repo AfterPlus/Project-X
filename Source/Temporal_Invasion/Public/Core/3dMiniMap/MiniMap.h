@@ -32,6 +32,10 @@ public:
 	UPROPERTY(BlueprintReadWrite,VisibleAnywhere,Category=Variable)
 	FVector SmallerScale;
 
+	UPROPERTY(BlueprintReadWrite,VisibleAnywhere,Category=Variable)
+	TArray<AActor*> Actors;
+	
+
 	UFUNCTION(BlueprintCallable)
 	void Init();
 
@@ -46,6 +50,7 @@ protected:
 public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
+
 
 private:
 	static AMiniMap* Instance;

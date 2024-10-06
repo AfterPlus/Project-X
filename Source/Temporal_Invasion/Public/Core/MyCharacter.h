@@ -3,6 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "Utilities/EnumLibrary.h"
 #include "Utilities/ActorInterface.h"
 #include "GameFramework/Character.h"
 #include "MyCharacter.generated.h"
@@ -48,6 +49,9 @@ public:
 
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category ="Components")
 	bool isWeaponWidgetActive ;
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category ="Components")
+	TEnumAsByte<EMarkerType>  Marker;
 
 	/** Time handler  */
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category ="Procedural Animation")

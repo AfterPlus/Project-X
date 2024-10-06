@@ -4,12 +4,12 @@
 
 #include "CoreMinimal.h"
 #include "3dMiniMap/MiniMap.h"
-#include "Utilities/BPFunctionLibrary.h"
 #include "GameFramework/GameModeBase.h"
 
 #include "MainGameModeBase.generated.h"
 
 
+class UEventsHolder;
 class UDelegates;
 class UUserWidget;
 UCLASS()
@@ -22,6 +22,12 @@ public:
 		
 	UPROPERTY(BlueprintReadWrite,VisibleAnywhere)
 	AMiniMap* MiniMap;
+
+	UPROPERTY(BlueprintReadOnly)
+	UEventsHolder* EventsHolder;
+
+	UPROPERTY(BlueprintReadWrite,EditAnywhere, Category="Classes")
+	TSubclassOf<UEventsHolder> EventHolderClass;
 
 	UFUNCTION(BlueprintCallable)
 	void Init();
