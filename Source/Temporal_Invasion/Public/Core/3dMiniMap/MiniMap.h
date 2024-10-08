@@ -3,6 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "Utilities/EnumLibrary.h"
 #include "GameFramework/Actor.h"
 #include "MiniMap.generated.h"
 
@@ -35,6 +36,8 @@ public:
 	UPROPERTY(BlueprintReadWrite,VisibleAnywhere,Category=Variable)
 	TArray<AActor*> Actors;
 	
+	UPROPERTY(BlueprintReadWrite,VisibleAnywhere,Category=Variable)
+	TArray<UStaticMeshComponent*> MiniMapMarkers ;  
 
 	UFUNCTION(BlueprintCallable)
 	void Init();
@@ -42,6 +45,9 @@ public:
 public:
 	UFUNCTION(BlueprintCallable)
 	static AMiniMap* GetInstance();
+
+	UFUNCTION(BlueprintNativeEvent)
+	void AddMiniMapMarker(AActor* Actor, FVector Location,EMarkerType Marker);
 
 protected:
 	// Called when the game starts or when spawned

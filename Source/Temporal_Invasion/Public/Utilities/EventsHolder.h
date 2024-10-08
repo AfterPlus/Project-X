@@ -14,6 +14,7 @@ class TEMPORAL_INVASION_API UEventsHolder : public UObject
 {
 	GENERATED_BODY()
 
+public:
 	UPROPERTY(BlueprintAssignable,BlueprintCallable)
 	FUpdateMiniMapMarker UpdateMiniMapMarkerReq;
 };

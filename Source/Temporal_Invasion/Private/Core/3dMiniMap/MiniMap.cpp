@@ -4,6 +4,7 @@
 #include "Core/3dMiniMap/MiniMap.h"
 
 #include "Core/MainGameModeBase.h"
+#include "Utilities/EventsHolder.h"
 
 AMiniMap* AMiniMap::Instance = nullptr;
 
@@ -23,6 +24,9 @@ void AMiniMap::BeginPlay()
 {
 	Super::BeginPlay();
 	Instance = this;
+
+	MiniMapMarkers.Add(MiniMapMesh);
+	//MainGameModeBase->EventsHolder->UpdateMiniMapMarkerReq.AddDynamic(this,&AMiniMap::AddMiniMapMarker);
 }
 
 void AMiniMap::Init()
@@ -34,6 +38,12 @@ AMiniMap* AMiniMap::GetInstance()
 {
 	return Instance;
 }
+
+void AMiniMap::AddMiniMapMarker_Implementation(AActor* Actor, FVector Location, EMarkerType Marker)
+{
+	
+}
+
 
 // Called every frame
 void AMiniMap::Tick(float DeltaTime)

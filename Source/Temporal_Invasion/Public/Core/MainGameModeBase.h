@@ -9,6 +9,7 @@
 #include "MainGameModeBase.generated.h"
 
 
+class AMiniMapPawn;
 class UEventsHolder;
 class UDelegates;
 class UUserWidget;
@@ -22,6 +23,9 @@ public:
 		
 	UPROPERTY(BlueprintReadWrite,VisibleAnywhere)
 	AMiniMap* MiniMap;
+
+	UPROPERTY(BlueprintReadWrite,VisibleAnywhere)
+	AMiniMapPawn* MiniMapPawn;
 
 	UPROPERTY(BlueprintReadOnly)
 	UEventsHolder* EventsHolder;
