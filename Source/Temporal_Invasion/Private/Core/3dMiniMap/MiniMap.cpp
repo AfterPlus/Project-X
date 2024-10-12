@@ -29,6 +29,14 @@ void AMiniMap::BeginPlay()
 	//MainGameModeBase->EventsHolder->UpdateMiniMapMarkerReq.AddDynamic(this,&AMiniMap::AddMiniMapMarker);
 }
 
+void AMiniMap::HideAllMarkers_Implementation()
+{
+	for (const auto Element : MiniMapMarkers)
+	{
+		Element->SetVisibility(false);
+	}
+}
+
 void AMiniMap::Init()
 {
 	MainGameModeBase = AMainGameModeBase::GetInstance();
@@ -39,11 +47,18 @@ AMiniMap* AMiniMap::GetInstance()
 	return Instance;
 }
 
-void AMiniMap::AddMiniMapMarker_Implementation(AActor* Actor, FVector Location, EMarkerType Marker)
+void AMiniMap::AddMiniMapMarker_Implementation(AActor* Actor, FVector Location, UStaticMeshComponent* MeshComponent)
 {
 	
 }
 
+void AMiniMap::ShowAllMarkers_Implementation()
+{
+	for (const auto Element : MiniMapMarkers)
+	{
+		Element->SetVisibility(true);
+	}
+}
 
 // Called every frame
 void AMiniMap::Tick(float DeltaTime)

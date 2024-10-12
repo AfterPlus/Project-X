@@ -8,7 +8,7 @@
 #include "EventsHolder.generated.h"
 
 
-DECLARE_DYNAMIC_MULTICAST_DELEGATE_ThreeParams(FUpdateMiniMapMarker,AActor*,Actor,FVector,Location,EMarkerType,Marker);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_ThreeParams(FUpdateMiniMapMarker,AActor*,Actor,FVector,Location,UStaticMeshComponent*,MeshComponent);
 UCLASS()
 class TEMPORAL_INVASION_API UEventsHolder : public UObject
 {

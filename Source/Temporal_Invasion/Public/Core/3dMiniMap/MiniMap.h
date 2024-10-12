@@ -47,19 +47,23 @@ public:
 	static AMiniMap* GetInstance();
 
 	UFUNCTION(BlueprintNativeEvent)
-	void AddMiniMapMarker(AActor* Actor, FVector Location,EMarkerType Marker);
+	void AddMiniMapMarker(AActor* Actor, FVector Location,UStaticMeshComponent* MeshComponent);
 
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
+	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
+	void HideAllMarkers();
+
+	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
+	void ShowAllMarkers();
+
 public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
-
 private:
 	static AMiniMap* Instance;
-
 	
 };
