@@ -9,6 +9,7 @@
 
 
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_ThreeParams(FUpdateMiniMapMarker,AActor*,Actor,FVector,Location,UStaticMeshComponent*,MeshComponent);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE(FApplyOption);
 UCLASS()
 class TEMPORAL_INVASION_API UEventsHolder : public UObject
 {
@@ -17,4 +18,7 @@ class TEMPORAL_INVASION_API UEventsHolder : public UObject
 public:
 	UPROPERTY(BlueprintAssignable,BlueprintCallable)
 	FUpdateMiniMapMarker UpdateMiniMapMarkerReq;
+
+	UPROPERTY(BlueprintAssignable,BlueprintCallable)
+	FApplyOption ApplyOptionReq;
 };
