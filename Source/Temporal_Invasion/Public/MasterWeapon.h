@@ -152,6 +152,9 @@ protected:
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Variables")
 	EWeaponState E_WeaponState;
 
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Variables")
+	bool bIsReloading = false ; 
+
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
@@ -164,5 +167,8 @@ public:
 
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "Functions")
 	void UpdateWeaponState(EWeaponState WeaponState);
+	
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Functions")
+	void Reload(UAnimMontage* ReloadMontage);
 
 };
