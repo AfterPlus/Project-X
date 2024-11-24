@@ -86,6 +86,9 @@ protected:
 	UPROPERTY(BlueprintReadWrite,EditAnyWhere,Category="Component")
 	USkeletalMeshComponent* GunMesh;
 
+	UPROPERTY(BlueprintReadWrite,EditAnyWhere,Category="Component")
+	USkeletalMesh* GunSkeletalMesh;
+
 	UPROPERTY(BlueprintReadWrite, EditAnyWhere, Category = "Component")
 	USphereComponent* SphereComponent;
 
@@ -95,15 +98,11 @@ protected:
 	//UPROPERTY(BlueprintReadWrite, EditAnyWhere, Category = "Component")
 	//USceneComponent* SceneComponent;
 
-	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Variables")
+	UPROPERTY(BlueprintReadWrite, Category = "Variables")
 	bool bCanPickUpWeapon;
 
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Variables")
 	AMyCharacter* AsPlayerCharacter;
-	
-	/** This is from the struct to set all the detail of the weapon */
-	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Variables")
-	FWeapon WeaponDetails;
 
 	/** The current number of bullets in the gun */
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Variables")
@@ -127,9 +126,6 @@ protected:
 
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Variables")
 	UUserWidget* InteractiveWidget;
-	
-	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Variables")
-	TSubclassOf<AMasterWeapon> ClassReference;
 
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Variables")
 	EFireMode FireMode ;
@@ -143,17 +139,26 @@ protected:
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Variables")
 	float Spread ;
 
-	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Variables")
+	UPROPERTY(BlueprintReadWrite, Category = "Variables")
 	float RecoilAlpha ;
 
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Variables")
 	FVector ADS_Offset;
 
-	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Variables")
+	UPROPERTY(BlueprintReadWrite, Category = "Variables")
 	EWeaponState E_WeaponState;
 
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Variables")
-	bool bIsReloading = false ; 
+	bool bCanFire;
+
+	UPROPERTY(BlueprintReadWrite, Category = "Variables")
+	bool bIsReloading = false ;
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Animations")
+	UAnimMontage* ReloadAnimation;
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Animations")
+	UAnimMontage* FireAnimation;
 
 public:	
 	// Called every frame
