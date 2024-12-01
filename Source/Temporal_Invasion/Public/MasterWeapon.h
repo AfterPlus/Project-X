@@ -3,9 +3,8 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "Engine/DataTable.h"
+#include "Utilities/EnumLibrary.h"
 #include "GameFramework/Actor.h"
-#include "Engine/DataTable.h"
 #include "Utilities/ActorInterface.h"
 #include "MasterWeapon.generated.h"
 
@@ -102,6 +101,9 @@ protected:
 	bool bCanPickUpWeapon;
 
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Variables")
+	TEnumAsByte<EWeaponType> WeaponTypeEnum;
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Variables")
 	AMyCharacter* AsPlayerCharacter;
 
 	/** The current number of bullets in the gun */
@@ -145,6 +147,7 @@ protected:
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Variables")
 	FVector ADS_Offset;
 
+	/** Enum for fot the weapon to indicate what state is the weapon at */
 	UPROPERTY(BlueprintReadWrite, Category = "Variables")
 	EWeaponState E_WeaponState;
 
@@ -176,4 +179,6 @@ public:
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Functions")
 	void Reload(UAnimMontage* ReloadMontage);
 
+	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "Functions")
+	void UpdateCrosshair(EWeaponType WeaponType);
 };

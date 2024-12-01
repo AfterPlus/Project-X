@@ -5,6 +5,7 @@
 #include "Components/SkeletalMeshComponent.h"
 #include "Components/SphereComponent.h"
 #include "Components/StaticMeshComponent.h"
+#include "Utilities/EnumLibrary.h"
 #include "Core/MyCharacter.h"
 
 // Sets default values
@@ -52,6 +53,11 @@ void AMasterWeapon::StopWeaponFire_Implementation()
 }
 
 void AMasterWeapon::WeaponReload_Implementation()
+{
+	
+}
+
+void AMasterWeapon::UpdateCrosshair_Implementation(EWeaponType WeaponType)
 {
 	
 }
