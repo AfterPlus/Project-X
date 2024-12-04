@@ -163,6 +163,9 @@ public:
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category="Weapon")
 	int InventorySlots = 0;
 
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category="Weapon")
+	bool bIsFiring;
+
 	/** Current weapon slot the player is using */
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category="Weapon")
 	int WeaponIndex ;
