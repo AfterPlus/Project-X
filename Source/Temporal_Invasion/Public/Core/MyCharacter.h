@@ -177,6 +177,10 @@ public:
 	/** Weapon that the player is currently using */
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category="Weapon")
 	AMasterWeapon* InHandWeapon ;
+
+	/** Can the player fire a weapon when mouse click */
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category="Weapon")
+	bool bCanFire ;
 	
 	
 protected:

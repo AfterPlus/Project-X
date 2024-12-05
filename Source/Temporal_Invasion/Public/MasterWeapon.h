@@ -180,5 +180,8 @@ public:
 	void Reload(UAnimMontage* ReloadMontage);
 
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "Functions")
+	void CancelReload();
+
+	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "Functions")
 	void UpdateCrosshair(EWeaponType WeaponType);
 };

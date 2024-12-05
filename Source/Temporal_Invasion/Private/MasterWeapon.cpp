@@ -57,6 +57,11 @@ void AMasterWeapon::WeaponReload_Implementation()
 	
 }
 
+void AMasterWeapon::CancelReload_Implementation()
+{
+	
+}
+
 void AMasterWeapon::UpdateCrosshair_Implementation(EWeaponType WeaponType)
 {
 	
