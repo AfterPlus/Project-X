@@ -93,7 +93,8 @@ bool AMyCharacter::CheckCanStand_Implementation()
 
 void AMyCharacter::EquipWeapon_Implementation(int Index)
 {
-	
+	USkeletalMeshComponent Mesh;
+	Mesh. AnimScriptInstance ->Montage_Stop(0.0f);
 }
 
 void AMyCharacter::SpawnWeapon_Implementation(TSubclassOf<AMasterWeapon> WeaponClass)
