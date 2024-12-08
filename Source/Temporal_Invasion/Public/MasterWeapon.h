@@ -106,17 +106,17 @@ protected:
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Variables")
 	AMyCharacter* AsPlayerCharacter;
 
-	/** The current number of bullets in the gun */
+	/** Keep track of the current ammo count - Removes one ammo when fire */
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Variables")
-	float CurrentAmmo;
+	float AmmoInMagazine;
 
-	/**  The number of bullets currently loaded in the weapon's clip */
+	/**  Ammo capacity in a single Magazine */
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Variables")
-	float AmmoInClip;
+	float MagazineCapacity ;
 
-	/** The maximum number of bullets that the weapon's clip can hold */
+	/** Total number of ammo a gun can have */
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Variables")
-	float MaxAmmoInClip;
+	float TotalAmmo;
 
 	/** The name of the weapon */
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Variables")

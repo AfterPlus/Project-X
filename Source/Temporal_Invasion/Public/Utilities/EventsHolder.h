@@ -10,6 +10,7 @@
 
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_ThreeParams(FUpdateMiniMapMarker,AActor*,Actor,FVector,Location,UStaticMeshComponent*,MeshComponent);
 DECLARE_DYNAMIC_MULTICAST_DELEGATE(FApplyOption);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE(FAmmoCountAnim);
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FPlayHUDFireAnimation,EWeaponType,WeaponType);
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FUpdateCrosshair,EWeaponType,WeaponType);
 
@@ -32,5 +33,6 @@ public:
 	UPROPERTY(BlueprintAssignable,BlueprintCallable)
 	FUpdateCrosshair UpdateCrosshairReq;
 
-	
+	UPROPERTY(BlueprintAssignable,BlueprintCallable)
+	FAmmoCountAnim PlayAmmoCountAnim ;
 };
