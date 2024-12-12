@@ -183,5 +183,8 @@ public:
 	void CancelReload();
 
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "Functions")
+	void AutoReload();
+
+	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "Functions")
 	void UpdateCrosshair(EWeaponType WeaponType);
 };

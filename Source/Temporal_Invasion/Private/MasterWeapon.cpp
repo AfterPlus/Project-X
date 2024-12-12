@@ -57,6 +57,11 @@ void AMasterWeapon::WeaponReload_Implementation()
 	
 }
 
+void AMasterWeapon::AutoReload_Implementation()
+{
+	
+}
+
 void AMasterWeapon::CancelReload_Implementation()
 {
 	
