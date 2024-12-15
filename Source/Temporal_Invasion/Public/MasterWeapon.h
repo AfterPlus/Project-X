@@ -83,7 +83,7 @@ protected:
 	virtual void BeginPlay() override;
 
 	UPROPERTY(BlueprintReadWrite,EditAnyWhere,Category="Component")
-	USkeletalMeshComponent* GunMesh;
+	USkeletalMeshComponent* SkeletalMeshComponent;
 
 	UPROPERTY(BlueprintReadWrite,EditAnyWhere,Category="Component")
 	USkeletalMesh* GunSkeletalMesh;

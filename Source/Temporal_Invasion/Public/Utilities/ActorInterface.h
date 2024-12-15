@@ -32,6 +32,14 @@ public:
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
 	void ActorOnInitialize(AActor* Interact_Actor);
 
+	/** Interact object when overlap */
+	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
+	void StartInteract(AActor* Interact_Actor);
+
+	/** Interact object when overlap */
+	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
+	void StopInteract(AActor* Interact_Actor);
+
 	/** Interface to delete the weapon class */
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
 	void DeleteClass();

@@ -17,13 +17,13 @@ AMasterWeapon::AMasterWeapon()
 	USceneComponent* SceneComponent = CreateDefaultSubobject<USceneComponent>(TEXT("RootComponent"));
 	SetRootComponent(RootComponent);
 
-	GunMesh = CreateDefaultSubobject<USkeletalMeshComponent>(TEXT("GunMesh"));
-	GunMesh->SetupAttachment(RootComponent);
-	RootComponent = GunMesh;
+	SkeletalMeshComponent = CreateDefaultSubobject<USkeletalMeshComponent>(TEXT("GunMesh"));
+	SkeletalMeshComponent->SetupAttachment(RootComponent);
+	RootComponent = SkeletalMeshComponent;
 	
 
 	SphereComponent = CreateDefaultSubobject<USphereComponent>(TEXT("SphereComponent"));
-	SphereComponent->SetupAttachment(GunMesh);
+	SphereComponent->SetupAttachment(SkeletalMeshComponent);
 	SphereComponent->SetSphereRadius(100.f);
 	
 }
