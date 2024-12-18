@@ -54,6 +54,11 @@ void AMyCharacter::AddGrenadeClass_Implementation(TSubclassOf<AMasterGrenade> Gr
 	AllGrenades.Add(GrenadeClass);
 }
 
+void AMyCharacter::LineTraceForLootCrate_Implementation()
+{
+	
+}
+
 void AMyCharacter::CastToCoreMain_Implementation()
 {
 	//AMyCharacter* AsMyCharacter;

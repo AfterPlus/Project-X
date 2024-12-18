@@ -29,3 +29,8 @@ void ALootCrate::InteractPressed_Implementation(AActor* Interact_Actor)
 	IActorInterface::InteractPressed_Implementation(Interact_Actor);
 }
 
+void ALootCrate::OpenCrate_Implementation()
+{
+	
+}
+

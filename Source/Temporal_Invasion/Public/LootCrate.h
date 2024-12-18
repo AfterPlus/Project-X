@@ -17,6 +17,9 @@ public:
 	// Sets default values for this actor's properties
 	ALootCrate();
 
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+	bool bIsOpen;
+
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
@@ -26,4 +29,7 @@ public:
 	virtual void Tick(float DeltaTime) override;
 
 	virtual void InteractPressed_Implementation(AActor* Interact_Actor) override;
+
+	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
+	void OpenCrate();
 };

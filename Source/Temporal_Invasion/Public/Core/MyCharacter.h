@@ -243,6 +243,9 @@ public:
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Procedural Animation")
 	void EnterADS() ;
+
+	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "Procedural Animation")
+	void LineTraceForLootCrate();
 	
 	/** TEST */
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "Functions")
