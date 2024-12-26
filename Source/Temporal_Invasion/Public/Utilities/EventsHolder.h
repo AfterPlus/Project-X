@@ -14,6 +14,8 @@ DECLARE_DYNAMIC_MULTICAST_DELEGATE(FAmmoCountAnim);
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FPlayHUDFireAnimation,EWeaponType,WeaponType);
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FUpdateCrosshair,EWeaponType,WeaponType);
 
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FUpdatePlayerHealth,float,Amount);
+
 
 UCLASS()
 class TEMPORAL_INVASION_API UEventsHolder : public UObject
@@ -35,4 +37,8 @@ public:
 
 	UPROPERTY(BlueprintAssignable,BlueprintCallable)
 	FAmmoCountAnim PlayAmmoCountAnim ;
+
+	UPROPERTY(BlueprintAssignable,BlueprintCallable)
+	FUpdatePlayerHealth UpdatePlayerHealth;
+	
 };

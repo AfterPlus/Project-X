@@ -53,6 +53,8 @@ public:
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category ="Components")
 	TEnumAsByte<EMarkerType>  Marker;
 
+	
+
 	/** Time handler  */
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category ="Procedural Animation")
 	FTimerHandle UncrouchTimer ;
@@ -192,6 +194,9 @@ protected:
 
 	UPROPERTY(BlueprintReadWrite, Category="Components")
 	UGrenadeSystemComponent* GrenadeSystemComponent;
+
+	static AMyCharacter* Instance;
+	
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
@@ -200,9 +205,12 @@ public:
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
 	virtual void AddGrenadeClass_Implementation(TSubclassOf<AMasterGrenade> GrenadeClass) override;
-
+	
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "Functions")
 	void CastToCoreMain();
+
+	UFUNCTION(BlueprintCallable)
+	static AMyCharacter* GetInstance();
 	
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "Functions")
 	void EquipWeapon(int Index);

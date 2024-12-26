@@ -7,6 +7,7 @@
 #include "MasterGrenade.h"
 #include "Components/WidgetComponent.h"
 
+AMyCharacter* AMyCharacter::Instance = nullptr ;
 
 // Sets default values
 AMyCharacter::AMyCharacter()
@@ -32,6 +33,8 @@ void AMyCharacter::BeginPlay()
 	Super::BeginPlay();
 	
 	CastToCoreMain();
+
+	Instance = this ;
 }
 
 // Called every frame
@@ -53,6 +56,12 @@ void AMyCharacter::AddGrenadeClass_Implementation(TSubclassOf<AMasterGrenade> Gr
 	IActorInterface::AddGrenadeClass_Implementation(GrenadeClass);
 	AllGrenades.Add(GrenadeClass);
 }
+
+AMyCharacter* AMyCharacter::GetInstance()
+{
+	return Instance ;
+}
+
 
 void AMyCharacter::LineTraceForLootCrate_Implementation()
 {
