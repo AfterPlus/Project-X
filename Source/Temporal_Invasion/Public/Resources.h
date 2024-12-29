@@ -7,6 +7,8 @@
 #include "GameFramework/Actor.h"
 #include "Resources.generated.h"
 
+class UProjectileMovementComponent;
+
 UCLASS()
 class TEMPORAL_INVASION_API AResources : public AActor,
 	public IActorInterface
@@ -16,6 +18,12 @@ class TEMPORAL_INVASION_API AResources : public AActor,
 public:
 	// Sets default values for this actor's properties
 	AResources();
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Component")
+	UStaticMeshComponent* Mesh ;
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Component")
+	UProjectileMovementComponent* ProjectileMovementComponent ;
 
 protected:
 	// Called when the game starts or when spawned
