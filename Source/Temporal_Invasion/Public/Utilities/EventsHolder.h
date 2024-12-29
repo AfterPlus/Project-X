@@ -14,7 +14,9 @@ DECLARE_DYNAMIC_MULTICAST_DELEGATE(FAmmoCountAnim);
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FPlayHUDFireAnimation,EWeaponType,WeaponType);
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FUpdateCrosshair,EWeaponType,WeaponType);
 
-DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FUpdatePlayerHealth,float,Amount);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FUpdatePlayerHealth,float,Amount,AActor*,Actor);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FUpdatePlayerArmor,float,Amount,AActor*,Actor);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE(FWeaponAmmoPick);
 
 
 UCLASS()
@@ -40,5 +42,10 @@ public:
 
 	UPROPERTY(BlueprintAssignable,BlueprintCallable)
 	FUpdatePlayerHealth UpdatePlayerHealth;
-	
+
+	UPROPERTY(BlueprintAssignable,BlueprintCallable)
+	FUpdatePlayerArmor UpdatePlayerArmor ;
+
+	UPROPERTY(BlueprintAssignable,BlueprintCallable)
+	FWeaponAmmoPick WeaponAmmoPicked ;
 };

@@ -47,11 +47,17 @@ public:
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category ="Variables")
 	UWidgetComponent* InteractWidget ;
 
-	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category ="Components")
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category ="Variables")
 	bool isWeaponWidgetActive ;
 
-	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category ="Components")
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category ="Variables")
 	TEnumAsByte<EMarkerType>  Marker;
+	
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category ="Variables")
+	float Health ;
+	
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category ="Variables")
+	float Armor ;
 
 	
 
