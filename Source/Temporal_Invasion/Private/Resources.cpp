@@ -2,6 +2,8 @@
 
 
 #include "Resources.h"
+
+#include "Components/SphereComponent.h"
 #include "GameFramework/ProjectileMovementComponent.h"
 
 
@@ -13,6 +15,9 @@ AResources::AResources()
 
 	Mesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Mesh"));
 	Mesh->SetupAttachment(RootComponent);
+
+	PickUpRadius = CreateDefaultSubobject<USphereComponent>(TEXT("PickUpRadius"));
+	PickUpRadius->SetupAttachment(RootComponent);
 
 	ProjectileMovementComponent = CreateDefaultSubobject<UProjectileMovementComponent>(TEXT("ProjectileMovementComponent"));
 	

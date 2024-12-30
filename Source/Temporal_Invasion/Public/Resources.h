@@ -7,6 +7,7 @@
 #include "GameFramework/Actor.h"
 #include "Resources.generated.h"
 
+class USphereComponent;
 class UProjectileMovementComponent;
 
 UCLASS()
@@ -21,6 +22,9 @@ public:
 
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Component")
 	UStaticMeshComponent* Mesh ;
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Component")
+	USphereComponent* PickUpRadius ;
 
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Component")
 	UProjectileMovementComponent* ProjectileMovementComponent ;
