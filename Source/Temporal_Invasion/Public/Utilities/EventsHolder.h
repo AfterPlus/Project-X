@@ -19,6 +19,9 @@ DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FUpdatePlayerArmor,float,Amount,AAc
 DECLARE_DYNAMIC_MULTICAST_DELEGATE(FWeaponAmmoPick);
 
 
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_ThreeParams(FPickUpNotification,UTexture2D*,Image,FText,Name,FText,Amount);
+
+
 UCLASS()
 class TEMPORAL_INVASION_API UEventsHolder : public UObject
 {
@@ -48,4 +51,7 @@ public:
 
 	UPROPERTY(BlueprintAssignable,BlueprintCallable)
 	FWeaponAmmoPick WeaponAmmoPicked ;
+
+	UPROPERTY(BlueprintAssignable,BlueprintCallable)
+	FPickUpNotification PickUpNotification ;
 };

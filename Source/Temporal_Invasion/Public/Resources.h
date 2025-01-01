@@ -29,6 +29,12 @@ public:
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Component")
 	UProjectileMovementComponent* ProjectileMovementComponent ;
 
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Variable")
+	UTexture2D* Icon ;
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Variable")
+	FText ResourceName ;
+
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
