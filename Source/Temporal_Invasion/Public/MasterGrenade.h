@@ -66,4 +66,7 @@ public:
 
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "Functions")
 	void UpdateGrenadeState(EGrenadeState WeaponState);
+
+	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "Functions")
+	void Throw();
 };

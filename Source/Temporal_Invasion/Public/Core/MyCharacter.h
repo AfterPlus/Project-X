@@ -160,9 +160,20 @@ public:
 	UPROPERTY(BlueprintReadWrite, Category="Weapon")
 	TArray<AMasterWeapon*> AllWeapons ;
 
-	/** List of greandes the player is carrying  */
+	/** List of grenades the player is carrying  */
 	UPROPERTY(BlueprintReadWrite, Category="Weapon")
 	 TArray<TSubclassOf<AMasterGrenade>> AllGrenades;
+
+	UPROPERTY(BlueprintReadWrite, Category="Grenade")
+	int Explosive ;
+
+	UPROPERTY(BlueprintReadWrite, Category="Grenade")
+	int StaticPulse ;
+
+	UPROPERTY(BlueprintReadWrite, Category="Grenade")
+	int GrenadeInventorySlot ;
+
+	
 
 	UPROPERTY(BlueprintReadWrite, Category="Weapon")
 	TArray<USceneComponent*> WeaponSlots ;

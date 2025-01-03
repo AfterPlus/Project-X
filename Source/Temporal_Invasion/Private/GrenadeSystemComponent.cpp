@@ -51,3 +51,10 @@ void UGrenadeSystemComponent::TickComponent(float DeltaTime, ELevelTick TickType
 	// ...
 }
 
+void UGrenadeSystemComponent::PickUp_Implementation(EGrenadeType GrenadeType)
+{
+	
+}
+
+
+

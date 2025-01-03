@@ -15,6 +15,7 @@ AMasterGrenade::AMasterGrenade()
 	
 	Mesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Mesh"));
 	Mesh->SetupAttachment(RootComponent); // Attach the Mesh to the root component
+	Mesh ->SetCollisionProfileName(TEXT("BlockAllDynamic"));
 	
 	CollisionBox = CreateDefaultSubobject<USphereComponent>(TEXT("CollisionBox"));
 	CollisionBox->SetupAttachment(Mesh);  // Set the CollisionBox as the mesh
@@ -70,6 +71,11 @@ void AMasterGrenade::OnOverlapBegin_MeshCollision(UPrimitiveComponent* Overlappe
 		{
 			UGameplayStatics::PlaySoundAtLocation(this, BounceSound, SweepResult.Location);
 		}
+	
+}
+
+void AMasterGrenade::Throw_Implementation()
+{
 	
 }
 

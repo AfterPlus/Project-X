@@ -24,3 +24,12 @@ enum EWeaponType
 	EWeaponType_ShootGun		UMETA(DisplaName = "ShootGun"),
 	EWeaponType_Sniper			UMETA(DisplaName = "Sniper")
 };
+
+UENUM(BlueprintType, meta=(ScriptName="EnumDataTables"))
+enum EGrenadeType
+{
+	EGrenadeType_None			UMETA(DisplayName = "None"),
+	EGrenadeType_Explosive		UMETA(DisplayName = "Explosive"),
+	EGrenadeType_StaticPulse	UMETA(DisplayName = "StaticPulse"),
+	EGrenadeType_Decoy			UMETA(DisplayName = "Decoy")
+};

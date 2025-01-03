@@ -1,6 +1,7 @@
 ﻿#include "CoreMinimal.h"
 #include "Components/ActorComponent.h"
 #include "Utilities/ActorInterface.h"
+#include "Utilities/EnumLibrary.h"
 #include "GrenadeSystemComponent.generated.h"
 
 class AMyCharacter;
@@ -28,4 +29,7 @@ public:
 	// Called every frame
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType,
 		FActorComponentTickFunction* ThisTickFunction) override;
+
+	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
+	void PickUp(EGrenadeType GrenadeType);
 };
