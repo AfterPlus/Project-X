@@ -3,9 +3,14 @@
 
 #include "Core/MyCharacter.h"
 #include "Utilities/BPFunctionLibrary.h"
+#include "Kismet/GameplayStatics.h"
+#include "Sound/SoundCue.h"
 #include "MasterWeapon.h"
 #include "MasterGrenade.h"
+#include "Components/AudioComponent.h"
 #include "Components/WidgetComponent.h"
+#include "Core/MainGameModeBase.h"
+#include "Utilities/EventsHolder.h"
 
 AMyCharacter* AMyCharacter::Instance = nullptr ;
 
@@ -24,6 +29,10 @@ AMyCharacter::AMyCharacter()
 
 	InteractWidget = CreateDefaultSubobject<UWidgetComponent>(TEXT("InteractWidget"));
 	isWeaponWidgetActive = true ;
+
+	AudioComponent = CreateDefaultSubobject<UAudioComponent>(TEXT("AudioComponent"));
+	AudioComponent->SetupAttachment(RootComponent);
+	//AudioComponent->bAutoActivate = false;
 	
 }
 
@@ -60,6 +69,41 @@ void AMyCharacter::AddGrenadeClass_Implementation(TSubclassOf<AMasterGrenade> Gr
 AMyCharacter* AMyCharacter::GetInstance()
 {
 	return Instance ;
+}
+
+void AMyCharacter::Dash_Implementation(float DashDistance,float ForwardInput, float RightInput)
+{
+	if (DashCount > 0)
+	{
+		bIsDashing = true;
+	
+		// Calculate dash direction
+		FVector Forward = GetActorForwardVector();  // Default dash direction
+		FVector Right = GetActorRightVector();
+
+		FVector DashDirection;
+
+		if (ForwardInput == 0.0f && RightInput == 0.0f)
+		{
+			// No input: Dash forward
+			DashDirection = Forward;
+		}
+		else
+		{
+			// Use input-based direction
+			DashDirection = (Forward * ForwardInput + Right * RightInput).GetSafeNormal();
+		}
+		// Launch character
+		LaunchCharacter(DashDirection * DashDistance, true, true);
+		
+		AudioComponent->SetSound(DashSoundCue);
+		AudioComponent->Play();
+		
+		DashCount -- ;
+		
+		AMainGameModeBase::GetInstance()->EventsHolder->Dash.Broadcast();
+	}
+	
 }
 
 

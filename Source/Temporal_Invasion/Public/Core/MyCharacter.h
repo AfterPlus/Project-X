@@ -8,6 +8,7 @@
 #include "GameFramework/Character.h"
 #include "MyCharacter.generated.h"
 
+class USoundCue;
 class AMasterGrenade;
 class AMainHUD;
 class AMainGameModeBase;
@@ -59,8 +60,22 @@ public:
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category ="Variables")
 	float Armor ;
 
-	
+	// Dash
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category ="Variables")
+	int MaxDashCount = 2 ;
 
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category ="Variables")
+	int DashCount  = MaxDashCount ;
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category ="Variables")
+	float DashRechargeTime ;
+	
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category ="Variables")
+	bool bCanDash ;
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category="Procedural Animation")
+	bool bIsDashing ;
+	
 	/** Time handler  */
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category ="Procedural Animation")
 	FTimerHandle UncrouchTimer ;
@@ -173,7 +188,11 @@ public:
 	UPROPERTY(BlueprintReadWrite, Category="Grenade")
 	int GrenadeInventorySlot ;
 
-	
+	UPROPERTY(BlueprintReadWrite, Category="Sounds")
+	UAudioComponent* AudioComponent ;
+
+	UPROPERTY(BlueprintReadWrite,EditAnywhere, Category="Sounds")
+	USoundCue* DashSoundCue ;
 
 	UPROPERTY(BlueprintReadWrite, Category="Weapon")
 	TArray<USceneComponent*> WeaponSlots ;
@@ -256,6 +275,10 @@ public:
 	/** Landing DIP */
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "Procedural Animation")
 	void LandingDip() ;
+
+	/** Landing DIP */
+	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "Procedural Animation")
+	void Dash(float DashDistance,float ForwardInput, float RightInput);
 
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "Procedural Animation")
 	void Dip(float Speed, float Strength) ;
