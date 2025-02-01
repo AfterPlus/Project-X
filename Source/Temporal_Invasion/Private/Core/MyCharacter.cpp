@@ -71,7 +71,7 @@ AMyCharacter* AMyCharacter::GetInstance()
 	return Instance ;
 }
 
-void AMyCharacter::Dash_Implementation(float DashDistance,float ForwardInput, float RightInput)
+bool AMyCharacter::Dash_Implementation(float DashDistance,float ForwardInput, float RightInput)
 {
 	if (DashCount > 0)
 	{
@@ -101,9 +101,12 @@ void AMyCharacter::Dash_Implementation(float DashDistance,float ForwardInput, fl
 		
 		DashCount -- ;
 		
-		AMainGameModeBase::GetInstance()->EventsHolder->Dash.Broadcast();
+		AMainGameModeBase::GetInstance()->EventsHolder->Dash.Broadcast(false);
+
+		return true;
 	}
 	
+	return false;
 }
 
 

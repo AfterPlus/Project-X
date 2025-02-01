@@ -10,7 +10,6 @@
 
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_ThreeParams(FUpdateMiniMapMarker,AActor*,Actor,FVector,Location,UStaticMeshComponent*,MeshComponent);
 DECLARE_DYNAMIC_MULTICAST_DELEGATE(FApplyOption);
-DECLARE_DYNAMIC_MULTICAST_DELEGATE(FDash);
 DECLARE_DYNAMIC_MULTICAST_DELEGATE(FAmmoCountAnim);
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FPlayHUDFireAnimation,EWeaponType,WeaponType);
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FUpdateCrosshair,EWeaponType,WeaponType);
@@ -18,6 +17,7 @@ DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FUpdateCrosshair,EWeaponType,WeaponT
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FUpdatePlayerHealth,float,Amount,AActor*,Actor);
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FUpdatePlayerArmor,float,Amount,AActor*,Actor);
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FWeaponAmmoPick,float,Amount,EWeaponType,WeaponType);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FDash,bool,bUpdateTextOnly);
 
 
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_ThreeParams(FPickUpNotification,UTexture2D*,Image,FText,Name,FText,Amount);

@@ -68,7 +68,7 @@ public:
 	int DashCount  = MaxDashCount ;
 
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category ="Variables")
-	float DashRechargeTime ;
+	float DashRechargeAmount = 1.0f ;
 	
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category ="Variables")
 	bool bCanDash ;
@@ -278,7 +278,7 @@ public:
 
 	/** Landing DIP */
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "Procedural Animation")
-	void Dash(float DashDistance,float ForwardInput, float RightInput);
+	bool Dash(float DashDistance,float ForwardInput, float RightInput);
 
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "Procedural Animation")
 	void Dip(float Speed, float Strength) ;
