@@ -1,7 +1,7 @@
 ﻿// Fill out your copyright notice in the Description page of Project Settings.
 
 
-#include "WeaponSystemComponent.h"
+#include "Components/WeaponSystemComponent.h"
 #include "MasterWeapon.h"
 #include "GraphColor/Private/appconst.h"
 
