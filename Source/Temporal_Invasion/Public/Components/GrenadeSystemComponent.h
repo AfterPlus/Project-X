@@ -1,4 +1,7 @@
-﻿#include "CoreMinimal.h"
+﻿
+#pragma once
+
+#include "CoreMinimal.h"
 #include "Components/ActorComponent.h"
 #include "Utilities/ActorInterface.h"
 #include "Utilities/EnumLibrary.h"

@@ -18,13 +18,13 @@ struct FWeapon
 
 	// Ammo Details
 	UPROPERTY( BlueprintReadWrite, meta = (DisplayName = "MaxAmmo"))
-	int MaxAmmo;
+	int MaxAmmo = 0.0f;
 
 	UPROPERTY( BlueprintReadWrite, meta = (DisplayName = "CurrentAmmo"))
-	int CurrentAmmo;
+	int CurrentAmmo = 0.0f;
 
 	UPROPERTY( BlueprintReadWrite, meta = (DisplayName = "FireRate"))
-	float FireRate;
+	float FireRate = 0.0f;
 
 	// HUD
 	//UPROPERTY( BlueprintReadWrite, meta = (DisplayName = "Weapon_Icon"))

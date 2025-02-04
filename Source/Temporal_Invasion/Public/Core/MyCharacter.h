@@ -75,6 +75,15 @@ public:
 
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category="Procedural Animation")
 	bool bIsDashing ;
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category ="Variables")
+	int MaxGrappleCount = 2 ;
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category ="Variables")
+	int GrappleCount = MaxGrappleCount ;
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category ="Variables")
+	float GrappleRechargeAmount = 1.0f ;
 	
 	/** Time handler  */
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category ="Procedural Animation")
@@ -171,6 +180,9 @@ public:
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category="Procedural Animation")
 	bool ADS_Held ;
 	
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category="Procedural Animation")
+	bool bIsCrouching = false; ;
+	
 	/** List of weapons the player is carrying  */
 	UPROPERTY(BlueprintReadWrite, Category="Weapon")
 	TArray<AMasterWeapon*> AllWeapons ;
@@ -258,6 +270,12 @@ public:
 	/** Switch weapon on input */
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "Functions")
 	void SwitchWeapon(int Index);
+
+	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "Functions")
+	void UpdateDashCount(int Value);
+
+	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "Functions")
+	void UpdateGrappleCount(int Value);
 	
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Procedural Animation")
 	void StandUp();

@@ -71,9 +71,21 @@ AMyCharacter* AMyCharacter::GetInstance()
 	return Instance ;
 }
 
+void AMyCharacter::UpdateGrappleCount_Implementation(int Value)
+{
+	GrappleCount = GrappleCount + Value ;
+	AMainGameModeBase::GetInstance()->EventsHolder->Dash.Broadcast(true);
+}
+
+void AMyCharacter::UpdateDashCount_Implementation(int Value)
+{
+	DashCount = DashCount + Value ;
+	AMainGameModeBase::GetInstance()->EventsHolder->Dash.Broadcast(true);
+}
+
 bool AMyCharacter::Dash_Implementation(float DashDistance,float ForwardInput, float RightInput)
 {
-	if (DashCount > 0)
+	if (DashCount > 0 && !bIsCrouching)
 	{
 		bIsDashing = true;
 	

@@ -1,6 +1,6 @@
 {
 	"FileVersion": 3,
-	"EngineAssociation": "4.27",
+	"EngineAssociation": "5.3",
 	"Category": "",
 	"Description": "",
 	"Modules": [
@@ -23,14 +23,6 @@
 			"Name": "LPSPSample",
 			"Enabled": false,
 			"MarketplaceURL": "https://www.unrealengine.com/marketplace/en-US/product/99747f977c16453eb270bcc0d78c3dd4"
-		},
-		{
-			"Name": "GLTFImporter",
-			"Enabled": true
-		},
-		{
-			"Name": "DatasmithGLTFImporter",
-			"Enabled": true
 		},
 		{
 			"Name": "EnhancedInput",

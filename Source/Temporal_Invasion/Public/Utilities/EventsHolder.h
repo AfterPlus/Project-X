@@ -18,6 +18,7 @@ DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FUpdatePlayerHealth,float,Amount,AA
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FUpdatePlayerArmor,float,Amount,AActor*,Actor);
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FWeaponAmmoPick,float,Amount,EWeaponType,WeaponType);
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FDash,bool,bUpdateTextOnly);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FGrapple,bool,bUpdateTextOnly);
 
 
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_ThreeParams(FPickUpNotification,UTexture2D*,Image,FText,Name,FText,Amount);
@@ -37,6 +38,9 @@ public:
 
 	UPROPERTY(BlueprintAssignable,BlueprintCallable)
 	FDash Dash;
+
+	UPROPERTY(BlueprintAssignable,BlueprintCallable)
+	FGrapple Grapple;
 
 	UPROPERTY(BlueprintAssignable,BlueprintCallable)
 	FPlayHUDFireAnimation PlayHUDFireAnimationReq;
