@@ -8,6 +8,7 @@
 #include "MasterWeapon.h"
 #include "MasterGrenade.h"
 #include "Components/AudioComponent.h"
+#include "Components/GrappleComponent.h"
 #include "Components/WidgetComponent.h"
 #include "Core/MainGameModeBase.h"
 #include "Utilities/EventsHolder.h"
@@ -44,6 +45,10 @@ void AMyCharacter::BeginPlay()
 	CastToCoreMain();
 
 	Instance = this ;
+
+	GrappleHook = nullptr;
+
+	PlayerController = GetWorld()->GetFirstPlayerController();
 }
 
 // Called every frame
@@ -51,6 +56,7 @@ void AMyCharacter::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
+	LineTraceForGrappleHook();
 }
 
 // Called to bind functionality to input
@@ -71,10 +77,67 @@ AMyCharacter* AMyCharacter::GetInstance()
 	return Instance ;
 }
 
+void AMyCharacter::LineTraceForGrappleHook_Implementation()
+{
+	if (!PlayerController) return;
+
+	int32 ViewportSizeX, ViewportSizeY;
+	PlayerController->GetViewportSize(ViewportSizeX, ViewportSizeY);
+
+	FVector2D ScreenCenter(ViewportSizeX * 0.5f, ViewportSizeY * 0.5f);
+
+
+	FVector WorldLocation, WorldDirection;
+	if (!PlayerController->DeprojectScreenPositionToWorld(ScreenCenter.X, ScreenCenter.Y, WorldLocation, WorldDirection))
+	{
+		return;
+	}
+
+	// Line trace Start, end and forward vector 
+	FVector Start = WorldLocation;
+	FVector End = Start + (WorldDirection * 1000.0f);
+	FVector ForwardVector = GetActorForwardVector();
+	 
+
+	FHitResult HitResult;
+	FCollisionQueryParams QueryParams;
+	QueryParams.AddIgnoredActor(this); // Ignore self
+	
+	if (GetWorld()->LineTraceSingleByChannel(HitResult, Start, End, ECollisionChannel::ECC_GameTraceChannel2, QueryParams))
+	{
+		AActor* HitActor = HitResult.GetActor();
+
+		if (HitActor && HitActor->FindComponentByClass<UGrappleComponent>())
+		{
+			// Call function on newly hit actor
+			HitActor->FindComponentByClass<UGrappleComponent>()->ShowMarker();
+
+			// If the hit actor is different from the previously hit actor, notify the previous one
+			if (GrappleHook && GrappleHook != HitActor)
+			{
+				GrappleHook->FindComponentByClass<UGrappleComponent>()->HideMarker();
+			}
+
+			// Update previously hit actor
+			GrappleHook = HitActor;
+		}
+	}
+	else
+	{
+		// If no actor is hit and there was a previously hit actor, trigger Hide event
+		if (GrappleHook)
+		{
+			GrappleHook->FindComponentByClass<UGrappleComponent>()->HideMarker();
+			GrappleHook = nullptr; // Reset
+		}
+	}
+	//DrawDebugLine(GetWorld(), Start, End, FColor::Red, false, 0.1f, 0, 1.0f);
+}
+
 void AMyCharacter::UpdateGrappleCount_Implementation(int Value)
 {
 	GrappleCount = GrappleCount + Value ;
-	AMainGameModeBase::GetInstance()->EventsHolder->Dash.Broadcast(true);
+	AMainGameModeBase::GetInstance()->EventsHolder->Grapple.Broadcast(true);
 }
 
 void AMyCharacter::UpdateDashCount_Implementation(int Value)

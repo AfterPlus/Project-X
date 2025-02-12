@@ -20,10 +20,31 @@ void UGrappleComponent::BeginPlay()
 {
 	Super::BeginPlay();
 
-	// ...
-	
-}
 
+	AActor* Owner = GetOwner();
+
+	if (Owner)
+
+	{
+
+		// Create the static mesh component
+
+		MeshComponent = NewObject<UStaticMeshComponent>(Owner, TEXT("StaticMeshComp"));
+
+		MeshComponent->SetupAttachment(Owner->GetRootComponent());
+
+		MeshComponent->RegisterComponent();
+		
+	}
+
+	if (Mesh)
+		MeshComponent->SetStaticMesh(Mesh);
+
+	if (Material)
+		MeshComponent->SetMaterial(0, Material);
+	
+	HideMarker();
+}
 
 // Called every frame
 void UGrappleComponent::TickComponent(float DeltaTime, ELevelTick TickType,
@@ -32,5 +53,15 @@ void UGrappleComponent::TickComponent(float DeltaTime, ELevelTick TickType,
 	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
 
 	// ...
+}
+
+void UGrappleComponent::ShowMarker_Implementation()
+{
+	MeshComponent->SetHiddenInGame(false);
+}
+
+void UGrappleComponent::HideMarker_Implementation()
+{
+	MeshComponent->SetHiddenInGame(true);
 }
 

@@ -16,6 +16,15 @@ public:
 	// Sets default values for this component's properties
 	UGrappleComponent();
 
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category="Variables")
+	UStaticMeshComponent* MeshComponent;
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category="Variables")
+	UMaterial* Material;
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category="Variables")
+	UStaticMesh* Mesh;
+
 protected:
 	// Called when the game starts
 	virtual void BeginPlay() override;
@@ -24,4 +33,10 @@ public:
 	// Called every frame
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType,
 	                           FActorComponentTickFunction* ThisTickFunction) override;
+
+	UFUNCTION(BlueprintNativeEvent,BlueprintCallable, Category="GrappleComponent")
+	void ShowMarker();
+
+	UFUNCTION(BlueprintNativeEvent,BlueprintCallable, Category="GrappleComponent")
+	void HideMarker();
 };

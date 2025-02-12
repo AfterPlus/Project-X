@@ -28,7 +28,7 @@ public:
 	AMyCharacter();
 	// cast to core main
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category ="Components")
-	AMainPlayerController* AsMainPlayerController ;
+	APlayerController* PlayerController = nullptr;
 	
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category ="Components")
 	AMainGameModeBase* AsMainGameMode ;
@@ -67,8 +67,9 @@ public:
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category ="Variables")
 	int DashCount  = MaxDashCount ;
 
+	// Keep the value form 0.1 to 1 
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category ="Variables")
-	float DashRechargeAmount = 1.0f ;
+	float DashRechargeAmount = 0.5f ;
 	
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category ="Variables")
 	bool bCanDash ;
@@ -76,14 +77,16 @@ public:
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category="Procedural Animation")
 	bool bIsDashing ;
 
+	// Grapple 
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category ="Variables")
 	int MaxGrappleCount = 2 ;
 
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category ="Variables")
 	int GrappleCount = MaxGrappleCount ;
 
+	// Keep the value form 0.4 to 0.6
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category ="Variables")
-	float GrappleRechargeAmount = 1.0f ;
+	float GrappleRechargeAmount = 0.5f ;
 	
 	/** Time handler  */
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category ="Procedural Animation")
@@ -231,6 +234,9 @@ public:
 	/** Can the player fire a weapon when mouse click */
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category="Weapon")
 	bool bCanFire ;
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category="Weapon")
+	AActor* GrappleHook = nullptr ;
 	
 	
 protected:
@@ -312,6 +318,9 @@ public:
 
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "Procedural Animation")
 	void LineTraceForLootCrate();
+
+	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "Procedural Animation")
+	void LineTraceForGrappleHook();
 	
 	/** TEST */
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "Functions")
