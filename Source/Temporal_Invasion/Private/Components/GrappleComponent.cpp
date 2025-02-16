@@ -34,6 +34,8 @@ void UGrappleComponent::BeginPlay()
 		MeshComponent->SetupAttachment(Owner->GetRootComponent());
 
 		MeshComponent->RegisterComponent();
+
+		MeshComponent->SetCollisionEnabled(ECollisionEnabled::NoCollision);
 		
 	}
 
