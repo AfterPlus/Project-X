@@ -33,3 +33,12 @@ enum EGrenadeType
 	EGrenadeType_StaticPulse	UMETA(DisplayName = "StaticPulse"),
 	EGrenadeType_Decoy			UMETA(DisplayName = "Decoy")
 };
+
+UENUM(BlueprintType, meta=(ScriptName="EnumDataTables"))
+enum ESkillType
+{
+	ESkillType_None				UMETA(DisplayName = "None"),
+	ESkillType_Health			UMETA(DisplayName = "Health"),
+	ESkillType_Weapon			UMETA(DisplayName = "Weapon"),
+	ESkillType_Abilities		UMETA(DisplayName = "Abilities")
+};

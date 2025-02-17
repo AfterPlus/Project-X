@@ -12,6 +12,16 @@ void AMainGameModeBase::Init()
 	EventsHolder = NewObject<UEventsHolder>(this);
 }
 
+void AMainGameModeBase::UpgradeSkillType_Implementation(ESkillType SkillType)
+{
+	
+}
+
+void AMainGameModeBase::LoadSkills_Implementation()
+{
+	
+}
+
 void AMainGameModeBase::BeginPlay()
 {
 	Super::BeginPlay();

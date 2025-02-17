@@ -3,11 +3,11 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "Utilities/EnumLibrary.h"
 #include "3dMiniMap/MiniMap.h"
 #include "GameFramework/GameModeBase.h"
-
+#include "Utilities/StructsLibrary.h"
 #include "MainGameModeBase.generated.h"
-
 
 class AMiniMapPawn;
 class UEventsHolder;
@@ -17,6 +17,7 @@ UCLASS()
 class TEMPORAL_INVASION_API AMainGameModeBase : public AGameModeBase
 {
 	GENERATED_BODY()
+	
 public:
 	UFUNCTION(BlueprintCallable)
 	static AMainGameModeBase* GetInstance();
@@ -33,12 +34,24 @@ public:
 	UPROPERTY(BlueprintReadWrite,EditAnywhere, Category="Classes")
 	TSubclassOf<UEventsHolder> EventHolderClass;
 
-	UFUNCTION(BlueprintCallable)
-	void Init();
+	UPROPERTY(BlueprintReadWrite,EditAnywhere, Category="Classes")
+	TMap<FString, FUpgrades> CachedSkill;
+
+	UPROPERTY(BlueprintReadWrite,EditAnywhere, Category="Classes")
+	TArray<FUpgrades> SkillUpgrade;
 	
 protected:
 	virtual void BeginPlay() override;
 	
 	static AMainGameModeBase* Instance;
-	
+
+public:
+	UFUNCTION(BlueprintCallable)
+	void Init();
+
+	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
+	void LoadSkills();
+
+	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
+	void UpgradeSkillType(ESkillType SkillType);
 };

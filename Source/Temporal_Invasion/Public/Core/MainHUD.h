@@ -30,6 +30,9 @@ public:
 	UUserWidget* Wbp_Crosshair;
 
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Widgets")
+	UUserWidget* Wbp_SkillUpgrades;
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Widgets")
 	TArray<UUserWidget*> AllWidgets;
 	
 	virtual void ActorOnInitialize_Implementation(AActor* Interact_Actor) override;
