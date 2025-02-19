@@ -3,6 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "Utilities/ActorInterface.h"
 
 #include "SkillUpgradeBase.generated.h"
 
@@ -10,14 +11,14 @@
  * 
  */
 UCLASS(Blueprintable)
-class TEMPORAL_INVASION_API USkillUpgradeBase : public UObject
+class TEMPORAL_INVASION_API USkillUpgradeBase : public UObject,
+	public IActorInterface
 {
 	GENERATED_BODY()
 
 	public:
-	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
-	bool CanBeDisplayed();
+	virtual bool CanDisplaySkill () ;
 
-	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
-	void UpdateSkill();
+	virtual void DisplaySkill();
+	
 };

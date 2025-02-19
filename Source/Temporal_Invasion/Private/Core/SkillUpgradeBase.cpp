@@ -3,12 +3,12 @@
 
 #include "Core/SkillUpgradeBase.h"
 
-bool USkillUpgradeBase::CanBeDisplayed_Implementation()
+bool USkillUpgradeBase::CanDisplaySkill()
 {
 	return true;
 }
 
-void USkillUpgradeBase::UpdateSkill_Implementation()
+void USkillUpgradeBase::DisplaySkill()
 {
 	
 }

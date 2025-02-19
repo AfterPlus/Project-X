@@ -39,6 +39,9 @@ public:
 
 	UPROPERTY(BlueprintReadWrite,EditAnywhere, Category="Classes")
 	TArray<FUpgrades> SkillUpgrade;
+
+	UPROPERTY(BlueprintReadWrite,EditAnywhere, Category="Classes")
+	TArray<FUpgrades> CachedSkillUpgrade;
 	
 protected:
 	virtual void BeginPlay() override;

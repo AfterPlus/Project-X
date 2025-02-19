@@ -44,6 +44,12 @@ public:
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
 	void DeleteClass();
 
+	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
+	bool CanDisplaySkill();
+
+	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
+	void UpdateSkill();
+
 	//////////////////////////////////////////////////////
 	/** All weapon actions */
 	/** Fire the in hand weapon */

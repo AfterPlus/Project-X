@@ -42,3 +42,13 @@ enum ESkillType
 	ESkillType_Weapon			UMETA(DisplayName = "Weapon"),
 	ESkillType_Abilities		UMETA(DisplayName = "Abilities")
 };
+
+UENUM(BlueprintType, meta=(ScriptName="EnumDataTables"))
+enum ESkillRarity 
+{
+	ESkillRarity_None				UMETA(DisplayName = "None"),
+	ESkillRarity_Epic				UMETA(DisplayName = "Epic"),
+	ESkillRarity_Rare				UMETA(DisplayName = "Rare"),
+	ESkillRarity_Common				UMETA(DisplayName = "Common"),
+	ESkillRarity_Unique				UMETA(DisplayName = "Unique")
+};

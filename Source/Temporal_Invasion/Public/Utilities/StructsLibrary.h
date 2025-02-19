@@ -24,8 +24,11 @@ struct FUpgrades : public FTableRowBase
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Stats")
 	TEnumAsByte<ESkillType> SkillType ;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Stats")
+	TEnumAsByte<ESkillRarity> SkillRarity  ;
 	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Stats")
-	TSoftObjectPtr<USkillUpgradeBase> SkillUpgradeClass ;
+	TSubclassOf<USkillUpgradeBase> SkillUpgradeClass ;
 	
 };
