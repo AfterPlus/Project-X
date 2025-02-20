@@ -12,6 +12,7 @@
 #include "Components/WidgetComponent.h"
 #include "Core/MainGameModeBase.h"
 #include "Utilities/EventsHolder.h"
+#include "WorldPartition/HLOD/DestructibleHLODComponent.h"
 
 AMyCharacter* AMyCharacter::Instance = nullptr ;
 
@@ -37,10 +38,14 @@ AMyCharacter::AMyCharacter()
 	
 }
 
+
+
 // Called when the game starts or when spawned
 void AMyCharacter::BeginPlay()
 {
 	Super::BeginPlay();
+	
+	GameInstance = Cast<UGameInstanceBase>(GetGameInstance());
 	
 	CastToCoreMain();
 
@@ -49,6 +54,12 @@ void AMyCharacter::BeginPlay()
 	GrappleHook = nullptr;
 
 	PlayerController = GetWorld()->GetFirstPlayerController();
+
+	UpdateCharacterStat();
+
+	DashCount = CharactersStats.MaxDashCount ;
+	GrappleCount = CharactersStats.MaxGrappleCount ;
+	
 }
 
 // Called every frame
@@ -75,6 +86,16 @@ void AMyCharacter::AddGrenadeClass_Implementation(TSubclassOf<AMasterGrenade> Gr
 AMyCharacter* AMyCharacter::GetInstance()
 {
 	return Instance ;
+}
+
+void AMyCharacter::UpdateCharacterStat_Implementation()
+{
+	if (GameInstance)
+	{
+		CharactersStats = GameInstance->CharactersStats ;
+		DashCount = CharactersStats.MaxDashCount ;
+		GrappleCount = CharactersStats.MaxGrappleCount ;
+	}
 }
 
 void AMyCharacter::LineTraceForGrappleHook_Implementation()

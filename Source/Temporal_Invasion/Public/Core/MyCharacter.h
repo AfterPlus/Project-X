@@ -4,8 +4,11 @@
 
 #include "CoreMinimal.h"
 #include "Utilities/EnumLibrary.h"
+#include "Utilities/StructsLibrary.h"
 #include "Utilities/ActorInterface.h"
 #include "GameFramework/Character.h"
+#include "Kismet/GameplayStatics.h"    
+#include "GameInstanceBase.h" 
 #include "MyCharacter.generated.h"
 
 class USoundCue;
@@ -26,6 +29,10 @@ class TEMPORAL_INVASION_API AMyCharacter : public ACharacter,
 public:
 	// Sets default values for this character's properties
 	AMyCharacter();
+
+	UPROPERTY()
+	UGameInstanceBase* GameInstance ;
+	
 	// cast to core main
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category ="Components")
 	APlayerController* PlayerController = nullptr;
@@ -43,7 +50,7 @@ public:
 	/** Component for the guns to be placed */
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category ="Components")
 	USkeletalMeshComponent* GunHolder ;
-
+	
 	/** Interact widget display when overlap weapon class */
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category ="Variables")
 	UWidgetComponent* InteractWidget ;
@@ -56,37 +63,39 @@ public:
 	
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category ="Variables")
 	float Health ;
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category ="Variables")
+	float MaxHealth ;
 	
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category ="Variables")
 	float Armor ;
 
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category ="Variables")
+	float MaxArmor ;
+
 	// Dash
-	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category ="Variables")
-	int MaxDashCount = 2 ;
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category ="Abilities")
+	int MaxDashCount ;
 
-	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category ="Variables")
-	int DashCount  = MaxDashCount ;
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category ="Abilities")
+	int DashCount ;
 
-	// Keep the value form 0.1 to 1 
-	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category ="Variables")
-	float DashRechargeAmount = 0.5f ;
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category ="Abilities")
+	FCharactersStats CharactersStats ;
+	
 	
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category ="Variables")
 	bool bCanDash ;
 
-	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category="Procedural Animation")
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category="Abilities")
 	bool bIsDashing ;
 
 	// Grapple 
-	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category ="Variables")
-	int MaxGrappleCount = 2 ;
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category ="Abilities")
+	int MaxGrappleCount ;
 
-	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category ="Variables")
-	int GrappleCount = MaxGrappleCount ;
-
-	// Keep the value form 0.4 to 0.6
-	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category ="Variables")
-	float GrappleRechargeAmount = 0.5f ;
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category ="Abilities")
+	int GrappleCount ;
 	
 	/** Time handler  */
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category ="Procedural Animation")
@@ -325,5 +334,8 @@ public:
 	/** TEST */
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "Functions")
 	void SpawnWeapon(TSubclassOf<AMasterWeapon> WeaponClass);
+
+	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "Functions")
+	void UpdateCharacterStat();
 
 };

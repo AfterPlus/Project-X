@@ -19,7 +19,7 @@ class TEMPORAL_INVASION_API AMainGameModeBase : public AGameModeBase
 	GENERATED_BODY()
 	
 public:
-	UFUNCTION(BlueprintCallable)
+	UFUNCTION(BlueprintCallable, BlueprintPure, meta = (DisplayName = "Get Main Game Mode"))
 	static AMainGameModeBase* GetInstance();
 		
 	UPROPERTY(BlueprintReadWrite,VisibleAnywhere)

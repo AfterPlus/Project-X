@@ -23,12 +23,49 @@ struct FUpgrades : public FTableRowBase
 	FString Description ;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Stats")
-	TEnumAsByte<ESkillType> SkillType ;
+	TEnumAsByte<ESkillType> SkillType = ESkillType_None ;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Stats")
-	TEnumAsByte<ESkillRarity> SkillRarity  ;
+	TEnumAsByte<ESkillRarity> SkillRarity  = ESkillRarity_None;
 	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Stats")
 	TSubclassOf<USkillUpgradeBase> SkillUpgradeClass ;
+	
+};
+
+USTRUCT(BlueprintType)
+struct FCharactersStats 
+{
+	GENERATED_BODY()
+	
+	// Health and Armor stat
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Health")
+	float MaxHealth = 0.0f ;
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Health")
+	float MaxArmor = 0.0f ;
+	
+	// Weapon
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category="Weapon")
+	int InventorySlots = 3;
+	
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category="Weapon", meta = (ClampMin = "0.1", ClampMax = "2.0", UIMin = "0.1", UIMax = "2.0"))
+	float Recoil = 0 ;
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category="Weapon", meta = (ClampMin = "0.1", ClampMax = "2.0", UIMin = "0.1", UIMax = "2.0"))
+	float Spray = 0 ;
+	
+	// Abilities 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Abilities")
+	int MaxDashCount = 0 ;
+	
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category ="Abilities")
+	int MaxGrappleCount = 0;
+	
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category ="Abilities", meta = (ClampMin = "0.1", ClampMax = "1.0", UIMin = "0.1", UIMax = "1.0"))		// Keep the value form 0.1 to 1 
+	float DashRechargeAmount = 0.5f ;
+	
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category ="Abilities", meta = (ClampMin = "0.4", ClampMax = "0.6", UIMin = "0.4", UIMax = "0.6"))		// Keep the value form 0.4 to 0.6
+	float GrappleRechargeAmount = 0.5f ;
 	
 };

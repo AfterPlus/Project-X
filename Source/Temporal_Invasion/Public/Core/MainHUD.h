@@ -36,4 +36,16 @@ public:
 	TArray<UUserWidget*> AllWidgets;
 	
 	virtual void ActorOnInitialize_Implementation(AActor* Interact_Actor) override;
+
+protected:
+	static AMainHUD* Instance;
+
+public:
+
+	void SetupHUD();
+	
+	UFUNCTION(BlueprintCallable,BlueprintPure, meta = (DisplayName = "Get Main HUD"))
+	static AMainHUD* GetInstance();
+
+	virtual void BeginPlay() override;
 };
