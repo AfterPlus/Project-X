@@ -2,3 +2,16 @@
 
 
 #include "GameInstanceBase.h"
+
+UGameInstanceBase* UGameInstanceBase::Instance = nullptr ;
+
+void UGameInstanceBase::Init()
+{
+	Super::Init();
+	Instance = this;
+}
+
+UGameInstanceBase* UGameInstanceBase::GetInstance()
+{
+	return Instance;
+}

@@ -66,4 +66,10 @@ public:
 	/** Weapon Reload */
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
 	void WeaponReload();
+
+	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
+	void SpawnRoom();
+
+	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
+	void DestroyRoom();
 };
