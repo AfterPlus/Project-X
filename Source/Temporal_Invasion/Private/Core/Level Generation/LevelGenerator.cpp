@@ -3,6 +3,7 @@
 
 #include "Core/Level Generation/LevelGenerator.h"
 
+ALevelGenerator* ALevelGenerator::Instance = nullptr ;
 
 // Sets default values
 ALevelGenerator::ALevelGenerator()
@@ -11,11 +12,16 @@ ALevelGenerator::ALevelGenerator()
 	PrimaryActorTick.bCanEverTick = true;
 }
 
+ALevelGenerator* ALevelGenerator::GetInstance()
+{
+	return Instance;
+}
+
 // Called when the game starts or when spawned
 void ALevelGenerator::BeginPlay()
 {
 	Super::BeginPlay();
-	
+	Instance = this;
 }
 
 // Called every frame

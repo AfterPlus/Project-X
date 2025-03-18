@@ -15,6 +15,15 @@ public:
 	// Sets default values for this actor's properties
 	ALevelGenerator();
 
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Variables")
+	USceneComponent* ExitPoint ;
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Variables")
+	TArray<USceneComponent*> ExitsPoints ; 
+	
+	UFUNCTION(BlueprintCallable, BlueprintPure, meta = (DisplayName = "Get Level Generator"))
+	static ALevelGenerator* GetInstance();
+
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
@@ -22,4 +31,6 @@ protected:
 public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
+
+	static ALevelGenerator* Instance;
 };
