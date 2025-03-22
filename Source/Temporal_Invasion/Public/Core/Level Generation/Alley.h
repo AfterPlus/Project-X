@@ -3,20 +3,20 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "GameFramework/Actor.h"
-#include "Utilities/ActorInterface.h"
-#include "Room.generated.h"
+#include "Room.h"
+
+#include "Alley.generated.h"
+
+class ALevelGenerator;
 
 UCLASS()
-class TEMPORAL_INVASION_API ARoom : public AActor,
-	public IActorInterface
-
+class TEMPORAL_INVASION_API AAlley : public AActor
 {
 	GENERATED_BODY()
 
 public:
 	// Sets default values for this actor's properties
-	ARoom();
+	AAlley();
 
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Component")
 	USceneComponent* Props ;
@@ -25,13 +25,16 @@ public:
 	USceneComponent* PhysicsProps ;
 
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Component")
-	USceneComponent* Doors ;
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Component")
 	USceneComponent* Exit ;
 
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Component")
-	USceneComponent* LineTracePoints ; 
+	USceneComponent* LineTracePoints ;
+
+	UPROPERTY(BlueprintReadWrite,EditAnywhere,Category="Variables")
+	ARoom* CurrentRoom = nullptr ;
+
+	UPROPERTY(BlueprintReadWrite,EditAnywhere,Category="Variables",  meta = (ExposeOnSpawn = "true"))
+	ALevelGenerator* LevelGenerator ;
 
 protected:
 	// Called when the game starts or when spawned
@@ -41,10 +44,12 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable)
+	void SpawnRoom();
+
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
-	bool CheckForRoomOverlap();
+	bool CheckForAlleyOverlap();
 
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
 	void SimulatePhysics(bool Simulate);
-	
 };

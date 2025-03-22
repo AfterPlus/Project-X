@@ -17,14 +17,9 @@ class TEMPORAL_INVASION_API UGameInstanceBase : public UGameInstance
 	GENERATED_BODY()
 
 public:
+	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Stats")
 	FCharactersStats CharactersStats;
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Stats")
-	TArray<TSubclassOf<ARoom>> Rooms;
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Stats")
-	TArray<TSubclassOf<ARoom>> Alleys;
 
 public:
 

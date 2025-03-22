@@ -3,8 +3,13 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "Alley.h"
+#include "Room.h"
 #include "GameFramework/Actor.h"
 #include "LevelGenerator.generated.h"
+
+class AAlley;
+class ARoom;
 
 UCLASS()
 class TEMPORAL_INVASION_API ALevelGenerator : public AActor
@@ -16,10 +21,17 @@ public:
 	ALevelGenerator();
 
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Variables")
-	USceneComponent* ExitPoint ;
+	TArray<TSubclassOf<AAlley>> Alleys;
 
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Variables")
-	TArray<USceneComponent*> ExitsPoints ; 
+	TArray<AAlley*> SpawnedAlley;
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Variables")
+	TArray<TSubclassOf<ARoom>> Rooms;
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Variables")
+	TArray<ARoom*> SpawnedRooms;
+	
 	
 	UFUNCTION(BlueprintCallable, BlueprintPure, meta = (DisplayName = "Get Level Generator"))
 	static ALevelGenerator* GetInstance();

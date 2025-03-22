@@ -1,11 +1,11 @@
 ﻿// Fill out your copyright notice in the Description page of Project Settings.
 
 
-#include "Core/Level Generation/Room.h"
+#include "Core/Level Generation/Alley.h"
 
 
 // Sets default values
-ARoom::ARoom()
+AAlley::AAlley()
 {
 	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
@@ -17,9 +17,6 @@ ARoom::ARoom()
 
 	PhysicsProps = CreateDefaultSubobject<USceneComponent>(TEXT("PhysicsProps"));
 	PhysicsProps->SetupAttachment(Props);
-
-	Doors = CreateDefaultSubobject<USceneComponent>(TEXT("Doors"));
-	Doors->SetupAttachment(RootComponent);
 	
 	Exit = CreateDefaultSubobject<USceneComponent>(TEXT("Exit"));
 	Exit->SetupAttachment(RootComponent);
@@ -30,24 +27,24 @@ ARoom::ARoom()
 }
 
 // Called when the game starts or when spawned
-void ARoom::BeginPlay()
+void AAlley::BeginPlay()
 {
 	Super::BeginPlay();
 	
 }
 
 // Called every frame
-void ARoom::Tick(float DeltaTime)
+void AAlley::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 }
 
-bool ARoom::CheckForRoomOverlap_Implementation()
+bool AAlley::CheckForAlleyOverlap_Implementation()
 {
 	return false;
 }
 
-void ARoom::SimulatePhysics_Implementation(bool Simulate)
+void AAlley::SimulatePhysics_Implementation(bool Simulate)
 {
 	
 }
