@@ -22,6 +22,9 @@ public:
 
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Variables")
 	bool bCanOpen ;
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Variables")
+	ALevelGenerator* LevelGenerator = nullptr;
 	
 protected:
 	// Called when the game starts or when spawned
@@ -31,6 +34,6 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
-	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable)
+	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
 	void SpawnAlley();
 };
