@@ -183,11 +183,13 @@ bool AMyCharacter::Dash_Implementation(float DashDistance,float ForwardInput, fl
 		{
 			// No input: Dash forward
 			DashDirection = Forward;
+			DashDirection = DashDirection * FVector(1.0f, 1.0f, 0.0f);
 		}
 		else
 		{
 			// Use input-based direction
 			DashDirection = (Forward * ForwardInput + Right * RightInput).GetSafeNormal();
+			DashDirection = DashDirection * FVector(1.0f, 1.0f, 0.0f);
 		}
 		// Launch character
 		LaunchCharacter(DashDirection * DashDistance, true, true);

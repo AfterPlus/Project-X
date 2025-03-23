@@ -36,4 +36,7 @@ public:
 
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
 	void SpawnAlley();
+
+	UFUNCTION(BlueprintNativeEvent)
+	void SpawnNextRoom();
 };

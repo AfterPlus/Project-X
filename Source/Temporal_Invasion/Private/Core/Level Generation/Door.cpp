@@ -2,7 +2,7 @@
 
 
 #include "Core/Level Generation/Door.h"
-
+#include "Runtime/Engine/Public/TimerManager.h"
 #include "Core/Level Generation/LevelGenerator.h"
 
 
@@ -51,18 +51,28 @@ void ADoor::SpawnAlley_Implementation()
 		{
 			break;
 		}
-		
 	}
+	
 	if (bCanOpen)
 	{
 		CurrentAlley->SetActorLocation(GetActorLocation());
+		
 		// Add delay
-		CurrentAlley->SimulatePhysics(true);
-		CurrentAlley->SpawnRoom();
-		LevelGenerator->SpawnedAlley.Remove(CurrentAlley);
+		FTimerHandle Delay ;
+		GetWorld()->GetTimerManager().SetTimer(Delay, this, &ADoor::SpawnNextRoom_Implementation, 0.2f, false);
 		bCanOpen = true ;
 	}
 	
-
 }
+
+void ADoor::SpawnNextRoom_Implementation()
+{
+	CurrentAlley->SimulatePhysics(true);
+	CurrentAlley->SpawnRoom();
+	LevelGenerator->SpawnedAlley.Remove(CurrentAlley);
+}
+
+
+
+
 
