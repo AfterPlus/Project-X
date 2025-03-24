@@ -6,6 +6,7 @@
 #include "Utilities/EnumLibrary.h"
 #include "3dMiniMap/MiniMap.h"
 #include "GameFramework/GameModeBase.h"
+#include "Level Generation/Room.h"
 #include "Utilities/StructsLibrary.h"
 #include "MainGameModeBase.generated.h"
 
@@ -39,6 +40,9 @@ public:
 
 	UPROPERTY(BlueprintReadWrite,EditAnywhere, Category="Classes")
 	TArray<FUpgrades> SkillUpgrade;
+
+	UPROPERTY(BlueprintReadWrite,EditAnywhere)
+	ARoom* CurrentRoom = nullptr;
 
 	UPROPERTY(BlueprintReadWrite,EditAnywhere, Category="Classes")
 	TArray<FUpgrades> CachedSkillUpgrade;

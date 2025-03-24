@@ -24,3 +24,18 @@ void ALevelManager::Tick(float DeltaTime)
 	Super::Tick(DeltaTime);
 }
 
+void ALevelManager::DeployEnemies_Implementation()
+{
+	
+}
+
+void ALevelManager::InitDoor_Implementation()
+{
+	
+}
+
+void ALevelManager::SpawnEnemies_Implementation()
+{
+	
+}
+

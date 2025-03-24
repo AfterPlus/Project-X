@@ -3,6 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "Enemies/MasterEnemy.h"
 
 #include "LevelManager.generated.h"
 
@@ -15,6 +16,9 @@ public:
 	// Sets default values for this actor's properties
 	ALevelManager();
 
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+	TArray<TSubclassOf<AMasterEnemy>> Enemies ;
+	
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
@@ -22,4 +26,13 @@ protected:
 public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
+
+	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
+	void SpawnEnemies();
+
+	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
+	void InitDoor();
+
+	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
+	void DeployEnemies();
 };

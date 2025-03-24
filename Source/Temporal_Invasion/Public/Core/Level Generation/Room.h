@@ -7,6 +7,8 @@
 #include "Utilities/ActorInterface.h"
 #include "Room.generated.h"
 
+class UBoxComponent;
+
 UCLASS()
 class TEMPORAL_INVASION_API ARoom : public AActor,
 	public IActorInterface
@@ -25,7 +27,13 @@ public:
 	USceneComponent* PhysicsProps ;
 
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Component")
+	UBoxComponent* BoxComp;
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Component")
 	USceneComponent* Doors ;
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Component")
+	USceneComponent* EnemiesSpawnPoints ;
 
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Component")
 	USceneComponent* Exit ;

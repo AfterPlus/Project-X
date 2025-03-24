@@ -2,6 +2,7 @@
 
 
 #include "Core/Level Generation/Room.h"
+#include "Components/BoxComponent.h"
 
 
 // Sets default values
@@ -15,6 +16,9 @@ ARoom::ARoom()
 	Props = CreateDefaultSubobject<USceneComponent>(TEXT("Props"));
 	Props->SetupAttachment(RootComponent);
 
+	BoxComp = CreateDefaultSubobject<UBoxComponent>(TEXT("BoxComp"));
+	BoxComp->SetupAttachment(RootComponent);
+	
 	PhysicsProps = CreateDefaultSubobject<USceneComponent>(TEXT("PhysicsProps"));
 	PhysicsProps->SetupAttachment(Props);
 
@@ -26,6 +30,9 @@ ARoom::ARoom()
 
 	LineTracePoints = CreateDefaultSubobject<USceneComponent>(TEXT("LineTracePoints"));
 	LineTracePoints->SetupAttachment(RootComponent);
+
+	EnemiesSpawnPoints = CreateDefaultSubobject<USceneComponent>(TEXT("EnemiesSpawnPoints"));
+	EnemiesSpawnPoints->SetupAttachment(RootComponent);
 	
 }
 
