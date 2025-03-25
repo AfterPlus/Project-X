@@ -3,6 +3,7 @@
 
 #include "Core/LevelManager.h"
 
+ALevelManager* ALevelManager::Instance = nullptr ;
 
 // Sets default values
 ALevelManager::ALevelManager()
@@ -15,7 +16,7 @@ ALevelManager::ALevelManager()
 void ALevelManager::BeginPlay()
 {
 	Super::BeginPlay();
-	
+	Instance = this;
 }
 
 // Called every frame
@@ -24,7 +25,17 @@ void ALevelManager::Tick(float DeltaTime)
 	Super::Tick(DeltaTime);
 }
 
-void ALevelManager::DeployEnemies_Implementation()
+ALevelManager* ALevelManager::GetInstance()
+{
+	return Instance;
+}
+
+void ALevelManager::EnemyDefeated_Implementation()
+{
+	
+}
+
+void ALevelManager::DeployEnemies_Implementation(FVector SpawnLocation)
 {
 	
 }

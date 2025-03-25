@@ -21,6 +21,9 @@ public:
 
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Components")
 	UBoxComponent* BoxComp;
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Components")
+	UStaticMeshComponent* MeshComp;
 	
 protected:
 	// Called when the game starts or when spawned

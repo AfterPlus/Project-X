@@ -12,6 +12,11 @@ ADoor::ADoor()
 	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 
+	RootComponent = CreateDefaultSubobject<USceneComponent>(TEXT("Root"));
+	
+	TextRender = CreateDefaultSubobject<UTextRenderComponent>("TextRender");
+	TextRender->SetupAttachment(RootComponent);
+	
 	bCanOpen = true;
 }
 
@@ -19,7 +24,6 @@ ADoor::ADoor()
 void ADoor::BeginPlay()
 {
 	Super::BeginPlay();
-	
 }
 
 // Called every frame
@@ -28,7 +32,7 @@ void ADoor::Tick(float DeltaTime)
 	Super::Tick(DeltaTime);
 }
 
-void ADoor::SpawnAlley_Implementation()
+void ADoor::TryPlaceRandomAlley_Implementation()
 {
 	if (LevelGenerator)
 		
@@ -49,10 +53,15 @@ void ADoor::SpawnAlley_Implementation()
 		}
 		else
 		{
+			bCanOpen = true;
 			break;
 		}
 	}
-	
+	TextRender->SetHiddenInGame(!bCanOpen);
+}
+
+void ADoor::SpawnAlley_Implementation()
+{
 	if (bCanOpen)
 	{
 		CurrentAlley->SetActorLocation(GetActorLocation());
@@ -62,7 +71,6 @@ void ADoor::SpawnAlley_Implementation()
 		GetWorld()->GetTimerManager().SetTimer(Delay, this, &ADoor::SpawnNextRoom_Implementation, 0.2f, false);
 		bCanOpen = true ;
 	}
-	
 }
 
 void ADoor::SpawnNextRoom_Implementation()

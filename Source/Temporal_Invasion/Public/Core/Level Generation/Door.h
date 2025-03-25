@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "Alley.h"
+#include "Components/TextRenderComponent.h"
 
 #include "Door.generated.h"
 
@@ -16,6 +17,8 @@ public:
 	// Sets default values for this actor's properties
 	ADoor();
 
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Component")
+	UTextRenderComponent* TextRender;
 	
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Variables")
 	AAlley* CurrentAlley = nullptr ;
@@ -34,9 +37,19 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
+	// First draw a line trace 
+	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
+	void TryPlaceRandomAlley();
+
+	// Set the room to the doors location
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
 	void SpawnAlley();
 
+	// Spawn the next room 
 	UFUNCTION(BlueprintNativeEvent)
 	void SpawnNextRoom();
+
+	// Called when E is pressed
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable)
+	void OpenDoor();
 };

@@ -7,6 +7,7 @@
 #include "Utilities/ActorInterface.h"
 #include "Room.generated.h"
 
+class ADoor;
 class UBoxComponent;
 
 UCLASS()
@@ -39,7 +40,10 @@ public:
 	USceneComponent* Exit ;
 
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Component")
-	USceneComponent* LineTracePoints ; 
+	USceneComponent* LineTracePoints ;
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Variable")
+	TArray<ADoor*> SpawnedDoors ;
 
 protected:
 	// Called when the game starts or when spawned
