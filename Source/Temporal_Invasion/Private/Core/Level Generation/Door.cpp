@@ -16,6 +16,9 @@ ADoor::ADoor()
 	
 	TextRender = CreateDefaultSubobject<UTextRenderComponent>("TextRender");
 	TextRender->SetupAttachment(RootComponent);
+
+	
+	TextRender->SetText(FText::FromString(TEXT(" Test ")));
 	
 	bCanOpen = true;
 }
@@ -34,6 +37,8 @@ void ADoor::Tick(float DeltaTime)
 
 void ADoor::TryPlaceRandomAlley_Implementation()
 {
+	TextRender->SetText(FText::FromString(TEXT("  ")));
+	
 	if (LevelGenerator)
 		
 	for (int32 i = 0; i < LevelGenerator->SpawnedAlley.Num(); i++)
@@ -57,7 +62,9 @@ void ADoor::TryPlaceRandomAlley_Implementation()
 			break;
 		}
 	}
-	TextRender->SetHiddenInGame(!bCanOpen);
+	
+	TextRender->SetText(FText::FromString(TEXT("Open")));
+
 }
 
 void ADoor::SpawnAlley_Implementation()

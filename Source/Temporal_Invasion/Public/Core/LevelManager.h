@@ -18,6 +18,9 @@ public:
 
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	TArray<TSubclassOf<AMasterEnemy>> Enemies ;
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+	TArray<AMasterEnemy*> SpawnedEnemies;
 	
 protected:
 	// Called when the game starts or when spawned
