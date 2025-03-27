@@ -6,10 +6,10 @@
 #include "Utilities/EnumLibrary.h"
 #include "3dMiniMap/MiniMap.h"
 #include "GameFramework/GameModeBase.h"
-#include "Level Generation/Room.h"
 #include "Utilities/StructsLibrary.h"
 #include "MainGameModeBase.generated.h"
 
+class ARoom;
 class AAlley;
 class AMiniMapPawn;
 class UEventsHolder;
@@ -21,14 +21,9 @@ class TEMPORAL_INVASION_API AMainGameModeBase : public AGameModeBase
 	GENERATED_BODY()
 	
 public:
+	
 	UFUNCTION(BlueprintCallable, BlueprintPure, meta = (DisplayName = "Get Main Game Mode"))
 	static AMainGameModeBase* GetInstance();
-		
-	UPROPERTY(BlueprintReadWrite,VisibleAnywhere)
-	AMiniMap* MiniMap;
-
-	UPROPERTY(BlueprintReadWrite,VisibleAnywhere)
-	AMiniMapPawn* MiniMapPawn;
 
 	UPROPERTY(BlueprintReadOnly)
 	UEventsHolder* EventsHolder;
@@ -47,6 +42,19 @@ public:
 
 	UPROPERTY(BlueprintReadWrite,EditAnywhere, Category="Classes")
 	TArray<FUpgrades> CachedSkillUpgrade;
+
+	
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Variables")
+	TArray<TSubclassOf<AAlley>> Alleys;
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Variables")
+	TArray<AAlley*> SpawnedAlley;
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Variables")
+	TArray<TSubclassOf<ARoom>> Rooms;
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Variables")
+	TArray<ARoom*> SpawnedRooms;
 	
 protected:
 	virtual void BeginPlay() override;

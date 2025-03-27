@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "Alley.h"
 #include "Components/TextRenderComponent.h"
+#include "Core/MainGameModeBase.h"
 
 #include "Door.generated.h"
 
@@ -19,10 +20,17 @@ public:
 
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Component")
 	UTextRenderComponent* TextRender;
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Variables")
+	AMainGameModeBase* MainGameMode;
 	
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Variables")
 	AAlley* CurrentAlley = nullptr ;
 
+	// To Do 
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Variables")
+	bool bIsDoorSpawned ;
+	
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Variables")
 	bool bCanOpen ;
 
@@ -37,6 +45,10 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable)
+	void Init(bool Condition);
+	
 	// First draw a line trace 
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
 	void TryPlaceRandomAlley();
@@ -53,3 +65,6 @@ public:
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable)
 	void OpenDoor();
 };
+
+
+

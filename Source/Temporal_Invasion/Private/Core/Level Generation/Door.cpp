@@ -5,7 +5,6 @@
 
 #include "Core/MainGameModeBase.h"
 #include "Runtime/Engine/Public/TimerManager.h"
-#include "Core/Level Generation/LevelGenerator.h"
 #include "Utilities/EventsHolder.h"
 
 
@@ -24,6 +23,8 @@ ADoor::ADoor()
 	TextRender->SetText(FText::FromString(TEXT(" Test ")));
 	
 	bCanOpen = true;
+
+	bIsDoorSpawned = false;
 }
 
 // Called when the game starts or when spawned
@@ -42,12 +43,12 @@ void ADoor::TryPlaceRandomAlley_Implementation()
 {
 	TextRender->SetText(FText::FromString(TEXT("  ")));
 	
-	if (LevelGenerator)
+	check (MainGameMode)
 		
-	for (int32 i = 0; i < LevelGenerator->SpawnedAlley.Num(); i++)
+	for (int32 i = 0; i < MainGameMode->SpawnedAlley.Num(); i++)
 	{
-		const int Random = FMath::RandRange(0, LevelGenerator->SpawnedAlley.Num() - 1);
-		CurrentAlley = LevelGenerator->SpawnedAlley[Random];
+		const int Random = FMath::RandRange(0, MainGameMode->SpawnedAlley.Num() - 1);
+		CurrentAlley = MainGameMode->SpawnedAlley[Random];
 
 		if (!CurrentAlley)
 			return;
@@ -65,8 +66,11 @@ void ADoor::TryPlaceRandomAlley_Implementation()
 			break;
 		}
 	}
-	
-	TextRender->SetText(FText::FromString(TEXT("Open")));
+
+	if (bCanOpen)
+	{
+		TextRender->SetText(FText::FromString(TEXT("Open")));
+	}
 
 }
 
@@ -89,7 +93,7 @@ void ADoor::SpawnNextRoom_Implementation()
 {
 	CurrentAlley->SimulatePhysics(true);
 	CurrentAlley->SpawnRoom();
-	LevelGenerator->SpawnedAlley.Remove(CurrentAlley);
+	AMainGameModeBase::GetInstance()->SpawnedAlley.Remove(CurrentAlley);
 }
 
 
