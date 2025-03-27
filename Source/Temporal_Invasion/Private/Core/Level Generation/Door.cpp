@@ -2,8 +2,11 @@
 
 
 #include "Core/Level Generation/Door.h"
+
+#include "Core/MainGameModeBase.h"
 #include "Runtime/Engine/Public/TimerManager.h"
 #include "Core/Level Generation/LevelGenerator.h"
+#include "Utilities/EventsHolder.h"
 
 
 // Sets default values
@@ -77,6 +80,8 @@ void ADoor::SpawnAlley_Implementation()
 		FTimerHandle Delay ;
 		GetWorld()->GetTimerManager().SetTimer(Delay, this, &ADoor::SpawnNextRoom_Implementation, 0.2f, false);
 		bCanOpen = true ;
+
+		AMainGameModeBase::GetInstance()->EventsHolder->AreaCleared.Broadcast();
 	}
 }
 

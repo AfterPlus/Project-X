@@ -20,6 +20,7 @@ DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FWeaponAmmoPick,float,Amount,EWeapo
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FDash,bool,bUpdateTextOnly);
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FGrapple,bool,bUpdateTextOnly);
 
+DECLARE_DYNAMIC_MULTICAST_DELEGATE(FAreaCleared);
 
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_ThreeParams(FPickUpNotification,UTexture2D*,Image,FText,Name,FText,Amount);
 
@@ -62,4 +63,7 @@ public:
 
 	UPROPERTY(BlueprintAssignable,BlueprintCallable)
 	FPickUpNotification PickUpNotification ;
+
+	UPROPERTY(BlueprintAssignable,BlueprintCallable)
+	FAreaCleared AreaCleared ;
 };

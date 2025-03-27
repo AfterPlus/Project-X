@@ -10,6 +10,7 @@
 #include "Utilities/StructsLibrary.h"
 #include "MainGameModeBase.generated.h"
 
+class AAlley;
 class AMiniMapPawn;
 class UEventsHolder;
 class UDelegates;
