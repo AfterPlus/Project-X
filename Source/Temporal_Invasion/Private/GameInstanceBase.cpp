@@ -15,3 +15,13 @@ UGameInstanceBase* UGameInstanceBase::GetInstance()
 {
 	return Instance;
 }
+
+void UGameInstanceBase::UpgradeSkillType_Implementation(ESkillType SkillType)
+{
+	
+}
+
+void UGameInstanceBase::LoadSkills_Implementation()
+{
+	
+}

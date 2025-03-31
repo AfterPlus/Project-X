@@ -30,19 +30,9 @@ public:
 
 	UPROPERTY(BlueprintReadWrite,EditAnywhere, Category="Classes")
 	TSubclassOf<UEventsHolder> EventHolderClass;
-
-	UPROPERTY(BlueprintReadWrite,EditAnywhere, Category="Classes")
-	TMap<FString, FUpgrades> CachedSkill;
-
-	UPROPERTY(BlueprintReadWrite,EditAnywhere, Category="Classes")
-	TArray<FUpgrades> SkillUpgrade;
-
+	
 	UPROPERTY(BlueprintReadWrite,EditAnywhere)
 	ARoom* CurrentRoom = nullptr;
-
-	UPROPERTY(BlueprintReadWrite,EditAnywhere, Category="Classes")
-	TArray<FUpgrades> CachedSkillUpgrade;
-
 	
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Variables")
 	TArray<TSubclassOf<AAlley>> Alleys;
@@ -62,12 +52,8 @@ protected:
 	static AMainGameModeBase* Instance;
 
 public:
+	
 	UFUNCTION(BlueprintCallable)
 	void Init();
 
-	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
-	void LoadSkills();
-
-	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
-	void UpgradeSkillType(ESkillType SkillType);
 };

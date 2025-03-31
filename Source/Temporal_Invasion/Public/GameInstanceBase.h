@@ -20,6 +20,15 @@ public:
 	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Stats")
 	FCharactersStats CharactersStats;
+	
+	UPROPERTY(BlueprintReadWrite,EditAnywhere, Category="Variables")
+	TMap<FString, FUpgrades> CachedSkill;
+
+	UPROPERTY(BlueprintReadWrite,EditAnywhere, Category="Variables")
+	TArray<FUpgrades> SkillUpgrade;
+
+	UPROPERTY(BlueprintReadWrite,EditAnywhere, Category="Variables")
+	TArray<FUpgrades> CachedSkillUpgrade;
 
 public:
 
@@ -27,6 +36,12 @@ public:
 	
 	UFUNCTION(BlueprintCallable, BlueprintPure, meta = (DisplayName = "Get Game Instance"))
 	static UGameInstanceBase* GetInstance();
+
+	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
+	void LoadSkills();
+
+	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
+	void UpgradeSkillType(ESkillType SkillType);
 	
 protected:
 	static UGameInstanceBase* Instance;
