@@ -6,6 +6,7 @@
 #include "EnumLibrary.h"
 #include "StructsLibrary.generated.h"
 
+class AMasterEnemy;
 class USkillUpgradeBase;
 
 USTRUCT(BlueprintType)
@@ -30,6 +31,19 @@ struct FUpgrades : public FTableRowBase
 	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Stats")
 	TSubclassOf<USkillUpgradeBase> SkillUpgradeClass ;
+	
+};
+
+USTRUCT(BlueprintType)
+struct FStageEnemyData : public FTableRowBase
+{
+	GENERATED_BODY()
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Stats")
+	TArray<TSubclassOf<AMasterEnemy>> EnemyTypes ;
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Stats")
+	int32 Level ;
 	
 };
 

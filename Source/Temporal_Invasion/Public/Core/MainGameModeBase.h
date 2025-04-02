@@ -45,6 +45,9 @@ public:
 
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Variables")
 	TArray<ARoom*> SpawnedRooms;
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Variables")
+	TArray<FStageEnemyData> EnemyList ;
 	
 protected:
 	virtual void BeginPlay() override;
