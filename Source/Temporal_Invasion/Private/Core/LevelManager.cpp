@@ -3,6 +3,10 @@
 
 #include "Core/LevelManager.h"
 
+#include "Core/MainGameModeBase.h"
+#include "Core/Level Generation/Door.h"
+#include "Core/Level Generation/Room.h"
+
 ALevelManager* ALevelManager::Instance = nullptr ;
 
 // Sets default values
@@ -32,7 +36,18 @@ ALevelManager* ALevelManager::GetInstance()
 
 void ALevelManager::EnemyDefeated_Implementation()
 {
-	
+	if (EnemyRemaining > 0)
+	{
+		EnemyRemaining--;
+		if (EnemyRemaining == 0)
+		{
+			TArray<ADoor*> Doors = AMainGameModeBase::GetInstance()->CurrentRoom->SpawnedDoors;
+			for (auto Door : Doors)
+			{
+				Door->Init(true);
+			}
+		}
+	}
 }
 
 void ALevelManager::DeployEnemies_Implementation(FVector SpawnLocation)

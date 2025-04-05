@@ -17,10 +17,10 @@ public:
 	ALevelManager();
 
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-	TArray<TSubclassOf<AMasterEnemy>> Enemies ;
-
+	int EnemyCount ;
+	
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-	TArray<AMasterEnemy*> SpawnedEnemies;
+	int EnemyRemaining ;
 	
 protected:
 	// Called when the game starts or when spawned
