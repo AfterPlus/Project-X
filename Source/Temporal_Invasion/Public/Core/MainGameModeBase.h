@@ -48,6 +48,9 @@ public:
 
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Variables")
 	TArray<FStageEnemyData> EnemyList ;
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Variables")
+	TArray<AMasterEnemy*> SpawnedEnemies;
 	
 protected:
 	virtual void BeginPlay() override;
@@ -58,5 +61,9 @@ public:
 	
 	UFUNCTION(BlueprintCallable)
 	void Init();
+
+	UFUNCTION(BlueprintCallable)
+	void SpawnEnemies();
+
 
 };

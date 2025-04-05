@@ -2,6 +2,7 @@
 
 
 #include "Core/MainGameModeBase.h"
+#include "Enemies/MasterEnemy.h"
 #include "Utilities/EventsHolder.h"
 
 AMainGameModeBase* AMainGameModeBase::Instance = nullptr ;
@@ -28,6 +29,34 @@ AMainGameModeBase* AMainGameModeBase::GetInstance()
 	
 }
 
+void AMainGameModeBase::SpawnEnemies()
+{
+	UWorld* World = GetWorld(); // Or pass this in
+	if (!World) return;
+
+	for (const FStageEnemyData& StageData : EnemyList)
+	{
+		for (const TSubclassOf<AMasterEnemy>& EnemyClass : StageData.EnemyTypes)
+		{
+			if (EnemyClass)
+			{
+				FVector SpawnLocation = FVector::ZeroVector; 
+				FRotator SpawnRotation = FRotator::ZeroRotator;
+
+				FActorSpawnParameters SpawnParams;
+				SpawnParams.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AdjustIfPossibleButAlwaysSpawn;
+
+				AMasterEnemy* SpawnedEnemy = World->SpawnActor<AMasterEnemy>(EnemyClass, SpawnLocation, SpawnRotation, SpawnParams);
+
+				if (SpawnedEnemy)
+				{
+					SpawnedEnemies.Add(SpawnedEnemy);
+				}
+			}
+		}
+	}
+	
+}
 
 
 
