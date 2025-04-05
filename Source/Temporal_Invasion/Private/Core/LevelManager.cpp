@@ -39,7 +39,7 @@ void ALevelManager::EnemyDefeated_Implementation()
 	if (EnemyRemaining > 0)
 	{
 		EnemyRemaining--;
-		if (EnemyRemaining == 0)
+		if ( EnemyRemaining == 0 )
 		{
 			TArray<ADoor*> Doors = AMainGameModeBase::GetInstance()->CurrentRoom->SpawnedDoors;
 			for (auto Door : Doors)

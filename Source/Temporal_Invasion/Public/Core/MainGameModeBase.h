@@ -51,6 +51,9 @@ public:
 
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Variables")
 	TArray<AMasterEnemy*> SpawnedEnemies;
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Variables")
+	int CurrentLevel = 0 ;
 	
 protected:
 	virtual void BeginPlay() override;
