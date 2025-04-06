@@ -53,7 +53,7 @@ public:
 	TArray<AMasterEnemy*> SpawnedEnemies;
 
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Variables")
-	int CurrentLevel = 0 ;
+	int CurrentLevel = -1 ;
 	
 protected:
 	virtual void BeginPlay() override;
@@ -67,6 +67,9 @@ public:
 
 	UFUNCTION(BlueprintCallable)
 	void SpawnEnemies();
+
+	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
+	void DisplaySkillType(ESkillType SkillType);
 
 
 };

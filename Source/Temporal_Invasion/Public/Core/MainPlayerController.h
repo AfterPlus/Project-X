@@ -14,4 +14,9 @@ UCLASS()
 class TEMPORAL_INVASION_API AMainPlayerController : public APlayerController
 {
 	GENERATED_BODY()
+
+	public:
+
+	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
+	void ShowUpgradeWidget();
 };

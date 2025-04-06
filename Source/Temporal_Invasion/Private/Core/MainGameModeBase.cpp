@@ -58,5 +58,10 @@ void AMainGameModeBase::SpawnEnemies()
 	
 }
 
+void AMainGameModeBase::DisplaySkillType_Implementation(ESkillType SkillType)
+{
+	
+}
+
 
 

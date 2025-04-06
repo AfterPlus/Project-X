@@ -4,8 +4,10 @@
 #include "Core/LevelManager.h"
 
 #include "Core/MainGameModeBase.h"
+#include "Core/MainPlayerController.h"
 #include "Core/Level Generation/Door.h"
 #include "Core/Level Generation/Room.h"
+#include "Kismet/GameplayStatics.h"
 
 ALevelManager* ALevelManager::Instance = nullptr ;
 
@@ -36,6 +38,9 @@ ALevelManager* ALevelManager::GetInstance()
 
 void ALevelManager::EnemyDefeated_Implementation()
 {
+	APlayerController* PlayerController = UGameplayStatics::GetPlayerController(this, 0);
+	AMainPlayerController* MainController = Cast<AMainPlayerController>(PlayerController);
+
 	if (EnemyRemaining > 0)
 	{
 		EnemyRemaining--;
@@ -45,6 +50,8 @@ void ALevelManager::EnemyDefeated_Implementation()
 			for (auto Door : Doors)
 			{
 				Door->Init(true);
+				if (MainController)
+					MainController->ShowUpgradeWidget();
 			}
 		}
 	}
