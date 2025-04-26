@@ -4,13 +4,15 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
+#include "Utilities/ActorInterface.h"
 
 #include "MasterEnemy.generated.h"
 
 class UBoxComponent;
 
 UCLASS()
-class TEMPORAL_INVASION_API AMasterEnemy : public ACharacter
+class TEMPORAL_INVASION_API AMasterEnemy : public ACharacter,
+					public IActorInterface
 {
 	GENERATED_BODY()
 
@@ -24,6 +26,13 @@ public:
 
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Components")
 	UStaticMeshComponent* MeshComp;
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Variable")
+	bool bIsInPlayersAttackRange = false ;
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Variable", meta = (ClampMin = "0.0", ClampMax = "100.0", UIMin = "0.0", UIMax = "100.0"))
+	float Health ;
+
 	
 protected:
 	// Called when the game starts or when spawned

@@ -17,6 +17,8 @@ AMasterEnemy::AMasterEnemy()
 
 	MeshComp = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("MeshComp"));
 	MeshComp->SetupAttachment(RootComponent);
+
+	Health = 100.f ;
 	
 }
 

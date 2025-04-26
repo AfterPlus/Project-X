@@ -32,6 +32,13 @@ AMyCharacter::AMyCharacter()
 	InteractWidget = CreateDefaultSubobject<UWidgetComponent>(TEXT("InteractWidget"));
 	isWeaponWidgetActive = true ;
 
+	EnemyRadius = CreateDefaultSubobject<USphereComponent>(TEXT("EnemyRadius"));
+	EnemyRadius->SetupAttachment(RootComponent);
+	EnemyRadius->InitSphereRadius(100.0f);
+	EnemyRadius->SetCollisionEnabled(ECollisionEnabled::QueryOnly);
+	EnemyRadius->SetCollisionResponseToAllChannels(ECR_Overlap);
+	
+
 	AudioComponent = CreateDefaultSubobject<UAudioComponent>(TEXT("AudioComponent"));
 	AudioComponent->SetupAttachment(RootComponent);
 	//AudioComponent->bAutoActivate = false;

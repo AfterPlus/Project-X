@@ -9,6 +9,7 @@
 #include "GameFramework/Character.h"
 #include "Kismet/GameplayStatics.h"    
 #include "GameInstanceBase.h" 
+#include "Components/SphereComponent.h"
 #include "MyCharacter.generated.h"
 
 class USoundCue;
@@ -50,6 +51,9 @@ public:
 	/** Component for the guns to be placed */
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category ="Components")
 	USkeletalMeshComponent* GunHolder ;
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category ="Components")
+	USphereComponent* EnemyRadius ;
 	
 	/** Interact widget display when overlap weapon class */
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category ="Variables")

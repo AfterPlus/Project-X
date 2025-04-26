@@ -50,6 +50,22 @@ public:
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
 	void UpdateSkill();
 
+#pragma region AI
+
+	////////////////////////////////////////////////////////
+	/** All AI actions */
+	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
+	void CheckForEnemiesRange(bool bIsInRange);
+	
+	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
+	bool CanPerformSpecialAttack();
+
+	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
+	void PlaySpecialAttack();
+	
+#pragma endregion	
+
+#pragma region Weapon
 	//////////////////////////////////////////////////////
 	/** All weapon actions */
 	/** Fire the in hand weapon */
@@ -72,4 +88,6 @@ public:
 
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
 	void DestroyRoom();
+
+#pragma endregion
 };
