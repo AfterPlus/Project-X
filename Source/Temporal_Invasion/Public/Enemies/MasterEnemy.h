@@ -20,12 +20,8 @@ public:
 	// Sets default values for this character's properties
 	AMasterEnemy();
 
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Components")
-	UBoxComponent* BoxComp;
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Components")
-	UStaticMeshComponent* MeshComp;
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Variable")
+	AMasterGrenade* Grenade;
 
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Variable")
 	bool bIsInPlayersAttackRange = false ;

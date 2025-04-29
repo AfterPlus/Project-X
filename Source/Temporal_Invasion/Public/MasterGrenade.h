@@ -3,6 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "Enemies/MasterEnemy.h"
 #include "GameFramework/Actor.h"
 #include "Utilities/ActorInterface.h"
 #include "MasterGrenade.generated.h"
@@ -34,17 +35,14 @@ public:
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Component")
 	UStaticMeshComponent* Mesh;
 
-	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Component")
-	USphereComponent* CollisionBox;
-
-	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Component")
-	USphereComponent* MeshCollision;
-	
-	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Variable")
-	EGrenadeState GrenadeState;
-
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Variable")
 	USoundBase* BounceSound;
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Variable", meta=(ExposeOnSpawn=true))
+	bool Player ;
+	
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Variable", meta=(ExposeOnSpawn=true))
+	AMasterEnemy* Enemy ;
 
 	UPROPERTY(VisibleAnywhere)
 	UAudioComponent* AudioComponent;
@@ -57,15 +55,6 @@ protected:
 public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
-
-	UFUNCTION()
-	void OnOverlapBegin(UPrimitiveComponent* OverlappedComp, AActor* OtherActor,UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult &SweepResult);
-
-	UFUNCTION()
-	void OnOverlapBegin_MeshCollision(UPrimitiveComponent* OverlappedComp, AActor* OtherActor,UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult &SweepResult);
-
-	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "Functions")
-	void UpdateGrenadeState(EGrenadeState WeaponState);
 
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "Functions")
 	void Throw();
