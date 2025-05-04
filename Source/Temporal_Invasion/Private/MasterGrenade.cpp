@@ -27,6 +27,16 @@ void AMasterGrenade::Tick(float DeltaTime)
 	Super::Tick(DeltaTime);
 }
 
+void AMasterGrenade::EnemyThrow_Implementation(FVector Impulse)
+{
+	
+}
+
+void AMasterGrenade::ResetProperties_Implementation()
+{
+	
+}
+
 
 void AMasterGrenade::Throw_Implementation()
 {
