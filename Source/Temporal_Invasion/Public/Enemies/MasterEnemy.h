@@ -8,6 +8,7 @@
 
 #include "MasterEnemy.generated.h"
 
+class AEnemyBullet;
 class UBoxComponent;
 
 UCLASS()
@@ -22,6 +23,9 @@ public:
 
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Variable")
 	AMasterGrenade* Grenade;
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Variable")
+	TArray<AEnemyBullet*> Bullets;
 
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Variable")
 	bool bIsInPlayersAttackRange = false ;
