@@ -62,8 +62,12 @@ public:
 
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
 	void PlaySpecialAttack();
+
+	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
+	void EnemyFire();
 	
-#pragma endregion	
+#pragma endregion
+
 
 #pragma region Weapon
 	//////////////////////////////////////////////////////
