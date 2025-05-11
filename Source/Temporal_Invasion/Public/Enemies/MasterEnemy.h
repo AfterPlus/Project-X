@@ -8,6 +8,7 @@
 
 #include "MasterEnemy.generated.h"
 
+class AMasterGrenade;
 class AEnemyBullet;
 class UBoxComponent;
 
@@ -31,7 +32,7 @@ public:
 	bool bIsInPlayersAttackRange = false ;
 
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Variable", meta = (ClampMin = "0.0", ClampMax = "100.0", UIMin = "0.0", UIMax = "100.0"))
-	float Health ;
+	float Health = 100.f ;
 
 	
 protected:

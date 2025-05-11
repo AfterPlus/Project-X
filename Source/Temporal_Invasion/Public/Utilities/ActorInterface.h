@@ -65,6 +65,9 @@ public:
 
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
 	void EnemyFire();
+
+	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
+	void ApplyDamageToEnemy(float Damage);
 	
 #pragma endregion
 
