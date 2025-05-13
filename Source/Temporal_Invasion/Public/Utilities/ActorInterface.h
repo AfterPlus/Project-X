@@ -96,5 +96,8 @@ public:
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
 	void DestroyRoom();
 
+	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
+	void CachedImpactPoint(FVector& Impulse, FString& BoneName, AMasterWeapon* Weapon, FHitResult HitResult);
+
 #pragma endregion
 };

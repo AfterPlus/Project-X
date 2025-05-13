@@ -101,6 +101,9 @@ protected:
 	bool bCanPickUpWeapon;
 
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Variables")
+	FString BoneHitName ;
+	
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Variables")
 	TEnumAsByte<EWeaponType> WeaponTypeEnum;
 
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Variables")

@@ -276,7 +276,7 @@ public:
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "Functions")
 	void CastToCoreMain();
 
-	UFUNCTION(BlueprintCallable)
+	UFUNCTION(BlueprintCallable, BlueprintPure, meta = (DisplayName = "Get Character"))
 	static AMyCharacter* GetInstance();
 	
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "Functions")
