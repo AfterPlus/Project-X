@@ -11,8 +11,12 @@
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_ThreeParams(FUpdateMiniMapMarker,AActor*,Actor,FVector,Location,UStaticMeshComponent*,MeshComponent);
 DECLARE_DYNAMIC_MULTICAST_DELEGATE(FApplyOption);
 DECLARE_DYNAMIC_MULTICAST_DELEGATE(FAmmoCountAnim);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE(FHeadShot);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE(FEnemyDead);
+
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FPlayHUDFireAnimation,EWeaponType,WeaponType);
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FUpdateCrosshair,EWeaponType,WeaponType);
+
 
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FUpdatePlayerHealth,float,Amount,AActor*,Actor);
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FUpdatePlayerArmor,float,Amount,AActor*,Actor);
@@ -66,4 +70,10 @@ public:
 
 	UPROPERTY(BlueprintAssignable,BlueprintCallable)
 	FAreaCleared AreaCleared ;
+
+	UPROPERTY(BlueprintAssignable,BlueprintCallable)
+	FHeadShot HeadShot;
+
+	UPROPERTY(BlueprintAssignable,BlueprintCallable)
+	FEnemyDead EnemyDead ;
 };
