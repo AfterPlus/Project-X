@@ -19,26 +19,26 @@ UGrappleComponent::UGrappleComponent()
 void UGrappleComponent::BeginPlay()
 {
 	Super::BeginPlay();
-
-
+	
 	AActor* Owner = GetOwner();
 
-	if (Owner)
+	if (!Owner) return;
 
+	MeshComponent = NewObject<UStaticMeshComponent>(Owner, TEXT("StaticMeshComp"));
+	MeshComponent->SetupAttachment(Owner->GetRootComponent());
+	MeshComponent->RegisterComponent();
+	MeshComponent->SetCollisionEnabled(ECollisionEnabled::NoCollision);
+
+	if (USkeletalMeshComponent* SkeletalMesh = Owner->FindComponentByClass<USkeletalMeshComponent>())
 	{
-
-		// Create the static mesh component
-
-		MeshComponent = NewObject<UStaticMeshComponent>(Owner, TEXT("StaticMeshComp"));
-
-		MeshComponent->SetupAttachment(Owner->GetRootComponent());
-
-		MeshComponent->RegisterComponent();
-
-		MeshComponent->SetCollisionEnabled(ECollisionEnabled::NoCollision);
-		
+		if (SkeletalMesh->DoesSocketExist("Head"))
+		{
+			HeadLocation = SkeletalMesh->GetSocketLocation("Head");
+			// Now you can use HeadLocation
+		}
 	}
 
+	
 	if (Mesh)
 		MeshComponent->SetStaticMesh(Mesh);
 
@@ -59,8 +59,21 @@ void UGrappleComponent::TickComponent(float DeltaTime, ELevelTick TickType,
 
 void UGrappleComponent::ShowMarker_Implementation()
 {
+
 	MeshComponent->SetHiddenInGame(false);
+
+	AActor* Owner = GetOwner();
+	if (!Owner) return;
+
+	USkeletalMeshComponent* SkeletalMesh = Owner->FindComponentByClass<USkeletalMeshComponent>();
+	if (!SkeletalMesh) return;
+
+	if (!SkeletalMesh->DoesSocketExist("Head")) return;
+
+	HeadLocation = SkeletalMesh->GetSocketLocation("Head");
+	MeshComponent->SetWorldLocation(HeadLocation);
 }
+
 
 void UGrappleComponent::HideMarker_Implementation()
 {

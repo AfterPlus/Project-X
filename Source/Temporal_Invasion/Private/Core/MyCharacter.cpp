@@ -159,7 +159,6 @@ void AMyCharacter::LineTraceForGrappleHook_Implementation()
 			GrappleHook = nullptr; // Reset
 		}
 	}
-	//DrawDebugLine(GetWorld(), Start, End, FColor::Red, false, 0.1f, 0, 1.0f);
 }
 
 void AMyCharacter::UpdateGrappleCount_Implementation(int Value)

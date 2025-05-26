@@ -25,6 +25,9 @@ public:
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category="Variables")
 	UStaticMesh* Mesh;
 
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category="Variables")
+	FVector HeadLocation;
+
 protected:
 	// Called when the game starts
 	virtual void BeginPlay() override;
@@ -33,6 +36,8 @@ public:
 	// Called every frame
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType,
 	                           FActorComponentTickFunction* ThisTickFunction) override;
+
+	
 
 	UFUNCTION(BlueprintNativeEvent,BlueprintCallable, Category="GrappleComponent")
 	void ShowMarker();
