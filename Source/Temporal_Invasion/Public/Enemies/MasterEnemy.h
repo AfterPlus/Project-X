@@ -13,7 +13,7 @@ class AEnemyBullet;
 class UBoxComponent;
 
 UCLASS()
-class TEMPORAL_INVASIO_API AMasterEnemy : public ACharacter,
+class TEMPORAL_INVASION_API AMasterEnemy : public ACharacter,
 					public IActorInterface
 {
 	GENERATED_BODY()
