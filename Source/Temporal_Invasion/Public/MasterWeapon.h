@@ -161,10 +161,16 @@ protected:
 	bool bIsReloading = false ;
 
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Animations")
-	UAnimMontage* ReloadAnimation;
+	UAnimMontage* PlayerReloadAnimation;
 
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Animations")
-	UAnimMontage* FireAnimation;
+	UAnimMontage* PlayerFireAnimation;
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Animations")
+	UAnimMontage* WeaponReloadAnimation;
+	
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Animations")
+	UAnimMontage* WeaponFireAnimation;
 
 public:	
 	// Called every frame
