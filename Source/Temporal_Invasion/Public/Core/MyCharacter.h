@@ -250,6 +250,9 @@ public:
 
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category="Weapon")
 	AActor* GrappleHook = nullptr ;
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+	TArray<AActor*> AllBullets ;
 	
 	
 protected:
