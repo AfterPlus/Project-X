@@ -253,6 +253,9 @@ public:
 
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	TArray<AActor*> AllBullets ;
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+	bool bCameraAnimation ;
 	
 	
 protected:
