@@ -63,9 +63,6 @@ void AMyCharacter::BeginPlay()
 	PlayerController = GetWorld()->GetFirstPlayerController();
 
 	UpdateCharacterStat();
-
-	DashCount = CharactersStats.MaxDashCount ;
-	GrappleCount = CharactersStats.MaxGrappleCount ;
 	
 }
 
@@ -102,6 +99,7 @@ void AMyCharacter::UpdateCharacterStat_Implementation()
 		CharactersStats = GameInstance->CharactersStats ;
 		DashCount = CharactersStats.MaxDashCount ;
 		GrappleCount = CharactersStats.MaxGrappleCount ;
+		GrenadeCount = CharactersStats.MaxGrenadeCount ;
 	}
 }
 
@@ -173,9 +171,15 @@ void AMyCharacter::UpdateDashCount_Implementation(int Value)
 	AMainGameModeBase::GetInstance()->EventsHolder->Dash.Broadcast(true);
 }
 
+void AMyCharacter::UpdateGrenadeCount_Implementation(int Value)
+{
+	GrenadeCount = GrenadeCount + Value ;
+	AMainGameModeBase::GetInstance()->EventsHolder->GrenadeThrow.Broadcast();
+}
+
 bool AMyCharacter::Dash_Implementation(float DashDistance,float ForwardInput, float RightInput)
 {
-	if (DashCount > 0 && !bIsCrouching)
+	if (DashCount > 0 )
 	{
 		bIsDashing = true;
 	

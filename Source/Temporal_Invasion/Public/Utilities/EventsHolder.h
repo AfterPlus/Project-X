@@ -13,6 +13,8 @@ DECLARE_DYNAMIC_MULTICAST_DELEGATE(FApplyOption);
 DECLARE_DYNAMIC_MULTICAST_DELEGATE(FAmmoCountAnim);
 DECLARE_DYNAMIC_MULTICAST_DELEGATE(FHeadShot);
 DECLARE_DYNAMIC_MULTICAST_DELEGATE(FEnemyDead);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE(FGrenadeThrow);
+
 
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FPlayHUDFireAnimation,EWeaponType,WeaponType);
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FUpdateCrosshair,EWeaponType,WeaponType);
@@ -76,4 +78,7 @@ public:
 
 	UPROPERTY(BlueprintAssignable,BlueprintCallable)
 	FEnemyDead EnemyDead ;
+
+	UPROPERTY(BlueprintAssignable,BlueprintCallable)
+	FGrenadeThrow GrenadeThrow;
 };

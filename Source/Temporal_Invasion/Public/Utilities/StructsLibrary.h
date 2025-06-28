@@ -75,11 +75,17 @@ struct FCharactersStats
 	
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category ="Abilities")
 	int MaxGrappleCount = 0;
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category ="Abilities")
+	int MaxGrenadeCount = 0 ;
 	
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category ="Abilities", meta = (ClampMin = "0.1", ClampMax = "1.0", UIMin = "0.1", UIMax = "1.0"))		// Keep the value form 0.1 to 1 
-	float DashRechargeAmount = 0.5f ;
+	float DashRechargeTimer = 0.5f ;
 	
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category ="Abilities", meta = (ClampMin = "0.4", ClampMax = "0.6", UIMin = "0.4", UIMax = "0.6"))		// Keep the value form 0.4 to 0.6
-	float GrappleRechargeAmount = 0.5f ;
+	float GrappleRechargeTimer = 0.5f ;
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category ="Abilities", meta = (ClampMin = "0.1", ClampMax = "1.0", UIMin = "0.1", UIMax = "1.0"))		
+	float GrenadeRechargeTimer = 0.5f ;
 	
 };

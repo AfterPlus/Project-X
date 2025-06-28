@@ -100,6 +100,14 @@ public:
 
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category ="Abilities")
 	int GrappleCount ;
+
+
+	// Granade
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category ="Abilities")
+	int GrenadeCount ;
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category ="Abilities")
+	int StartingGrenadeCount ;
 	
 	/** Time handler  */
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category ="Procedural Animation")
@@ -207,6 +215,9 @@ public:
 	UPROPERTY(BlueprintReadWrite, Category="Weapon")
 	 TArray<TSubclassOf<AMasterGrenade>> AllGrenades;
 
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Weapon")
+	TArray<AMasterGrenade*> Grenades ;
+
 	UPROPERTY(BlueprintReadWrite, Category="Grenade")
 	int Explosive ;
 
@@ -301,6 +312,9 @@ public:
 
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "Functions")
 	void UpdateGrappleCount(int Value);
+
+	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "Functions")
+	void UpdateGrenadeCount(int Value);
 	
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Procedural Animation")
 	void StandUp();

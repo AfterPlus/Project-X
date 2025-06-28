@@ -38,6 +38,9 @@ public:
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Variable")
 	USoundBase* BounceSound;
 
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Variable")
+	bool bHasBeenThrown ; 
+
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Variable", meta=(ExposeOnSpawn=true))
 	bool Player ;
 	
