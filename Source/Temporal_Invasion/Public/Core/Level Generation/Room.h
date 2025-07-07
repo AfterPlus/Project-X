@@ -40,6 +40,9 @@ public:
 	USceneComponent* Exit ;
 
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Component")
+	USceneComponent* NavLinkLocation ; 
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Component")
 	USceneComponent* LineTracePoints ;
 
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Variable")

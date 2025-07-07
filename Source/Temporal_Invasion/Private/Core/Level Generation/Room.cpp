@@ -33,6 +33,9 @@ ARoom::ARoom()
 
 	EnemiesSpawnPoints = CreateDefaultSubobject<USceneComponent>(TEXT("EnemiesSpawnPoints"));
 	EnemiesSpawnPoints->SetupAttachment(RootComponent);
+
+	NavLinkLocation = CreateDefaultSubobject<USceneComponent>(TEXT("NavLinkLocation"));
+	NavLinkLocation->SetupAttachment(RootComponent);	
 	
 }
 
