@@ -50,6 +50,12 @@ public:
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
 	void UpdateSkill();
 
+	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
+	void SaveActor();
+
+	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
+	void LoadActor();
+
 #pragma region AI
 
 	////////////////////////////////////////////////////////

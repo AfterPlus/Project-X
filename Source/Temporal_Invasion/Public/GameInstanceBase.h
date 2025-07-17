@@ -42,6 +42,12 @@ public:
 
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
 	void UpgradeSkillType(ESkillType SkillType);
+
+	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
+	void SaveCharacterStats(FCharactersStats Stats);
+
+	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
+	void SavePlayer();
 	
 protected:
 	static UGameInstanceBase* Instance;

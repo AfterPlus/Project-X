@@ -16,6 +16,16 @@ UGameInstanceBase* UGameInstanceBase::GetInstance()
 	return Instance;
 }
 
+void UGameInstanceBase::SavePlayer_Implementation()
+{
+	
+}
+
+void UGameInstanceBase::SaveCharacterStats_Implementation(FCharactersStats Stats)
+{
+	
+}
+
 void UGameInstanceBase::UpgradeSkillType_Implementation(ESkillType SkillType)
 {
 	

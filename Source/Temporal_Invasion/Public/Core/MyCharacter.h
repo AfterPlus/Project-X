@@ -39,9 +39,6 @@ public:
 	APlayerController* PlayerController = nullptr;
 	
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category ="Components")
-	AMainGameModeBase* AsMainGameMode ;
-	
-	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category ="Components")
 	AMainHUD* AsMainHUD ;
 	
 	/** Component for the guns to be placed */
