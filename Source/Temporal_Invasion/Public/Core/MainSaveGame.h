@@ -24,6 +24,9 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Stats")
 	FVector CharactersLocation;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Stats")
+	FPlayerSaveData PlayerSaveData;
+
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Variables")
 	AMasterWeapon* InHandWeapon;
 

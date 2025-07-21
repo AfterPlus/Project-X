@@ -16,7 +16,7 @@ UGameInstanceBase* UGameInstanceBase::GetInstance()
 	return Instance;
 }
 
-void UGameInstanceBase::SavePlayer_Implementation()
+void UGameInstanceBase::SavePlayer_Implementation(FPlayerSaveData SaveData)
 {
 	
 }

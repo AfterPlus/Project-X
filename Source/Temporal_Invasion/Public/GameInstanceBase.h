@@ -47,7 +47,7 @@ public:
 	void SaveCharacterStats(FCharactersStats Stats);
 
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
-	void SavePlayer();
+	void SavePlayer(FPlayerSaveData SaveData);
 	
 protected:
 	static UGameInstanceBase* Instance;

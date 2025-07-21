@@ -6,6 +6,7 @@
 #include "EnumLibrary.h"
 #include "StructsLibrary.generated.h"
 
+class AMasterWeapon;
 class AMasterEnemy;
 class USkillUpgradeBase;
 
@@ -44,6 +45,22 @@ struct FStageEnemyData : public FTableRowBase
 	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Stats")
 	int32 Level ;
+	
+};
+
+USTRUCT(BlueprintType)
+struct FPlayerSaveData : public FTableRowBase
+{
+	GENERATED_BODY()
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	float Health ;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	AMasterWeapon* InHandWeapon ;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	FVector PlayerLocation ;
 	
 };
 
