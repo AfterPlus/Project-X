@@ -16,6 +16,11 @@ UGameInstanceBase* UGameInstanceBase::GetInstance()
 	return Instance;
 }
 
+void UGameInstanceBase::SaveWeaponInfo_Implementation(int CurrentAmmo, int MaxAmmo)
+{
+	
+}
+
 void UGameInstanceBase::SavePlayer_Implementation(FPlayerSaveData SaveData)
 {
 	

@@ -60,6 +60,9 @@ struct FPlayerSaveData : public FTableRowBase
 	AMasterWeapon* InHandWeapon ;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	TArray<AMasterWeapon*> AllWeapons ;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	FVector PlayerLocation ;
 	
 };

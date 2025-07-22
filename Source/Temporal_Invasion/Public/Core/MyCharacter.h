@@ -233,7 +233,7 @@ public:
 	UPROPERTY(BlueprintReadWrite, Category="Weapon")
 	TArray<USceneComponent*> WeaponSlots ;
 	
-	/** The number od slots the player has to carry weapons */
+	/** Number of weapons the player can carry */
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category="Weapon")
 	int InventorySlots = 0;
 

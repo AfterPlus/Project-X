@@ -48,6 +48,9 @@ public:
 
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
 	void SavePlayer(FPlayerSaveData SaveData);
+
+	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
+	void SaveWeaponInfo(int CurrentAmmo, int MaxAmmo);
 	
 protected:
 	static UGameInstanceBase* Instance;

@@ -32,5 +32,20 @@ public:
 
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Variables")
 	TArray<AMasterWeapon*> AllWeapons ;
+
+	/** To check if the save file is already saved */
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Variables")
+	bool bHasInitialized = false;
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Weapon Info")
+	int CurrentAmmo ;
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Weapon Info")
+	int MaxAmmo ;
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Weapon Info")
+	TMap<FString, int32> WeaponAmmoMap;
+
+
 	
 };
