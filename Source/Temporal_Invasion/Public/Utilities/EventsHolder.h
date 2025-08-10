@@ -14,6 +14,8 @@ DECLARE_DYNAMIC_MULTICAST_DELEGATE(FAmmoCountAnim);
 DECLARE_DYNAMIC_MULTICAST_DELEGATE(FHeadShot);
 DECLARE_DYNAMIC_MULTICAST_DELEGATE(FEnemyDead);
 DECLARE_DYNAMIC_MULTICAST_DELEGATE(FGrenadeThrow);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE(FRefreshWidget);
+
 
 
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FPlayHUDFireAnimation,EWeaponType,WeaponType);
@@ -38,7 +40,7 @@ class TEMPORAL_INVASION_API UEventsHolder : public UObject
 
 public:
 	UPROPERTY(BlueprintAssignable,BlueprintCallable)
-	FUpdateMiniMapMarker UpdateMiniMapMarkerReq;
+	FRefreshWidget RefreshWidget;
 
 	UPROPERTY(BlueprintAssignable,BlueprintCallable)
 	FApplyOption ApplyOptionReq;
