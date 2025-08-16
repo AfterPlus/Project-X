@@ -51,6 +51,18 @@ public:
 
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category ="Components")
 	USphereComponent* EnemyRadius ;
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category ="Components")
+	TSubclassOf<AMasterWeapon> ClassPrimaryWeapon ;
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category ="Components")
+	AMasterWeapon* PrimaryWeaponObj ;
+	
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category ="Components")
+	TSubclassOf<AMasterWeapon> ClassSecondaryWeapon ;
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category ="Components")
+	AMasterWeapon* SecondaryWeaponObj ;
 	
 	/** Interact widget display when overlap weapon class */
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category ="Variables")
@@ -251,7 +263,7 @@ public:
 	/** Weapon that the player is currently using */
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category="Weapon")
 	AMasterWeapon* InHandWeapon ;
-
+	
 	/** Can the player fire a weapon when mouse click */
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category="Weapon")
 	bool bCanFire ;

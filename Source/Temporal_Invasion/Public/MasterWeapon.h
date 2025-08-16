@@ -196,4 +196,7 @@ public:
 
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "Functions")
 	void UpdateCrosshair(EWeaponType WeaponType);
+
+	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "Functions")
+	void LoadWeapon(int CurrentAmmo, int MaxAmmo);
 };

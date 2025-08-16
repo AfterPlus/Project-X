@@ -16,6 +16,11 @@ UGameInstanceBase* UGameInstanceBase::GetInstance()
 	return Instance;
 }
 
+void UGameInstanceBase::SavePlayerInHandWeapon_Implementation(AMasterWeapon* InHandWeapon)
+{
+	
+}
+
 void UGameInstanceBase::SaveWeaponInfo_Implementation(int CurrentAmmo, int MaxAmmo)
 {
 	

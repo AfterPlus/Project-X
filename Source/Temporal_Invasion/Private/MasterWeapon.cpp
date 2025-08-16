@@ -57,6 +57,11 @@ void AMasterWeapon::WeaponReload_Implementation()
 	
 }
 
+void AMasterWeapon::LoadWeapon_Implementation(int CurrentAmmo, int MaxAmmo)
+{
+	
+}
+
 void AMasterWeapon::AutoReload_Implementation()
 {
 	

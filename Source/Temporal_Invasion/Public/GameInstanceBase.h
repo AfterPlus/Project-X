@@ -50,6 +50,9 @@ public:
 	void SavePlayer(FPlayerSaveData SaveData);
 
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
+	void SavePlayerInHandWeapon(AMasterWeapon* InHandWeapon);
+
+	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
 	void SaveWeaponInfo(int CurrentAmmo, int MaxAmmo);
 	
 protected:

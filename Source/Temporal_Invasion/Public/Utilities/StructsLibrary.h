@@ -56,12 +56,30 @@ struct FPlayerSaveData : public FTableRowBase
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	float Health ;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
 	AMasterWeapon* InHandWeapon ;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
 	TArray<AMasterWeapon*> AllWeapons ;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame, Category = "Primary Weapon ")
+	TSubclassOf<AMasterWeapon> PrimaryWeapon ;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Primary Weapon ")
+	int PrimaryWeaponAmmoInMagazine ;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Primary Weapon ")
+	int PrimaryWeaponTotalAmmo ;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame, Category = "Secondary Weapon ")
+	TSubclassOf<AMasterWeapon> SecondaryWeapon ; 
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Secondary Weapon ")
+	int SecondaryWeaponAmmoInMagazine ;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Secondary Weapon ")
+	int SecondaryWeaponTotalAmmo ;
+	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	FVector PlayerLocation ;
 	
@@ -107,5 +125,18 @@ struct FCharactersStats
 
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category ="Abilities", meta = (ClampMin = "0.1", ClampMax = "1.0", UIMin = "0.1", UIMax = "1.0"))		
 	float GrenadeRechargeTimer = 0.5f ;
+	
+};
+
+USTRUCT()
+struct FWeaponData : public FTableRowBase
+{
+	GENERATED_BODY()
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Weapon")
+	int AmmoInMagazine ;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Weapon")
+	int TotalAmmo ;
 	
 };
