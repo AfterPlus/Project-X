@@ -2,3 +2,8 @@
 
 
 #include "Core/MainSaveGame.h"
+
+void UMainSaveGame::AddAlley_Implementation(FAlleySaveData ActorSaveData)
+{
+	
+}

@@ -40,7 +40,7 @@ void AMainGameModeBase::SpawnEnemies()
 		{
 			if (EnemyClass)
 			{
-				FVector SpawnLocation = FVector::ZeroVector; 
+				FVector SpawnLocation = FVector(-100000, -100000, -100000); 
 				FRotator SpawnRotation = FRotator::ZeroRotator;
 
 				FActorSpawnParameters SpawnParams;

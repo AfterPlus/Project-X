@@ -8,6 +8,7 @@
 #include "Utilities/StructsLibrary.h"
 #include "GameInstanceBase.generated.h"
 
+class AAlley;
 /**
  * 
  */
@@ -54,6 +55,9 @@ public:
 
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
 	void SaveWeaponInfo(int CurrentAmmo, int MaxAmmo);
+
+	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
+	void SaveAlley(TSubclassOf<AAlley> Alley, FTransform Transform, bool bIsAtLocation);
 	
 protected:
 	static UGameInstanceBase* Instance;

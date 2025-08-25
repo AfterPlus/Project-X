@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "Room.h"
+#include "Core/MainSaveGame.h"
 
 #include "Alley.generated.h"
 
@@ -33,12 +34,17 @@ public:
 	UPROPERTY(BlueprintReadWrite,EditAnywhere,Category="Variables")
 	ARoom* CurrentRoom = nullptr ;
 
+	UPROPERTY(BlueprintReadWrite,EditAnywhere,Category="Variables")
+	bool bIsAtLocation = false ;
+
 	UPROPERTY(BlueprintReadWrite,EditAnywhere,Category="Variables",  meta = (ExposeOnSpawn = "true"))
 	ALevelGenerator* LevelGenerator ;
 
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
+
+	static AAlley* Instance;
 
 public:
 	// Called every frame
@@ -52,4 +58,10 @@ public:
 
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
 	void SimulatePhysics(bool Simulate);
+
+	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
+	FAlleySaveData GetAlleyInformationData();
+
+	UFUNCTION(BlueprintCallable, BlueprintPure, meta = (DisplayName = "Get Alley"))
+	static AAlley* GetInstance();
 };

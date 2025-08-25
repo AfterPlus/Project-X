@@ -16,6 +16,11 @@ UGameInstanceBase* UGameInstanceBase::GetInstance()
 	return Instance;
 }
 
+void UGameInstanceBase::SaveAlley_Implementation(TSubclassOf<AAlley> Alley, FTransform Transform, bool bIsAtLocation)
+{
+	
+}
+
 void UGameInstanceBase::SavePlayerInHandWeapon_Implementation(AMasterWeapon* InHandWeapon)
 {
 	

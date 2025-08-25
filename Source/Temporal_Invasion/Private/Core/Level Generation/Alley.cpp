@@ -4,6 +4,7 @@
 #include "Core/Level Generation/Alley.h"
 
 
+AAlley* AAlley::Instance = nullptr ;
 // Sets default values
 AAlley::AAlley()
 {
@@ -30,13 +31,23 @@ AAlley::AAlley()
 void AAlley::BeginPlay()
 {
 	Super::BeginPlay();
-	
+	Instance = this;
 }
 
 // Called every frame
 void AAlley::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
+}
+
+FAlleySaveData AAlley::GetAlleyInformationData_Implementation()
+{
+	return FAlleySaveData();
+}
+
+AAlley* AAlley::GetInstance()
+{
+	return Instance ;
 }
 
 bool AAlley::CheckForAlleyOverlap_Implementation()

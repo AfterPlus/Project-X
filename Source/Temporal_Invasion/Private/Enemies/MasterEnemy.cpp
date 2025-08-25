@@ -13,6 +13,7 @@ AMasterEnemy::AMasterEnemy()
 	PrimaryActorTick.bCanEverTick = true;
 
 	Health = 100.f ;
+	SetCollision(false);
 	
 }
 
@@ -34,5 +35,11 @@ void AMasterEnemy::SetupPlayerInputComponent(UInputComponent* PlayerInputCompone
 {
 	Super::SetupPlayerInputComponent(PlayerInputComponent);
 }
+
+void AMasterEnemy::SetCollision_Implementation(bool Enable)
+{
+	SetActorEnableCollision(Enable);
+}
+
 
 

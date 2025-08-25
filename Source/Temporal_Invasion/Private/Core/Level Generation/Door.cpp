@@ -93,7 +93,7 @@ void ADoor::SpawnNextRoom_Implementation()
 {
 	CurrentAlley->SimulatePhysics(true);
 	CurrentAlley->SpawnRoom();
-	AMainGameModeBase::GetInstance()->SpawnedAlley.Remove(CurrentAlley);
+	//AMainGameModeBase::GetInstance()->SpawnedAlley.Remove(CurrentAlley);
 }
 
 
