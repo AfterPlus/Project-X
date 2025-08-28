@@ -78,7 +78,13 @@ void ADoor::SpawnAlley_Implementation()
 {
 	if (bCanOpen)
 	{
+
+		const int Random = FMath::RandRange(0, MainGameMode->SpawnedAlley.Num() - 1);
+		CurrentAlley = MainGameMode->SpawnedAlley[Random];
+		
 		CurrentAlley->SetActorLocation(GetActorLocation());
+		CurrentAlley->SetActorRotation(GetActorRotation());
+
 		
 		// Add delay
 		FTimerHandle Delay ;
